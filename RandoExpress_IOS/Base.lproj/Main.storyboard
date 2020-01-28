@@ -34,21 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-37-guh">
-                                <rect key="frame" x="0.0" y="126" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daY-CN-fiL">
-                                <rect key="frame" x="0.0" y="182" width="414" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-gN-afg">
-                                <rect key="frame" x="0.0" y="31" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Liste des Randonnées" id="Eoi-5c-qW2"/>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duQ-9Z-X9o">
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -78,20 +63,32 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Liste des Randonnées" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rk0-d1-H34">
+                                <rect key="frame" x="123" y="44" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-37-guh">
+                                <rect key="frame" x="0.0" y="86" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-kb-czr">
+                                <rect key="frame" x="0.0" y="142" width="414" height="705"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="eD9-gN-afg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="31" id="I7T-jL-cdb"/>
-                            <constraint firstItem="daY-CN-fiL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-20" id="jnH-tS-8mV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="daY-CN-fiL" secondAttribute="trailing" constant="-20" id="t99-uM-vEW"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UTi-aH-7lW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="80"/>
+            <point key="canvasLocation" x="400.00000000000006" y="79.6875"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EdP-dc-Y2V">
@@ -101,55 +98,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1iJ-z6-S47">
+                                <rect key="frame" x="0.0" y="141" width="414" height="706"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53e-Fy-66e">
+                                <rect key="frame" x="191" y="44" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGb-i7-9Wc">
-                                <rect key="frame" x="0.0" y="125" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="85" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1iJ-z6-S47">
-                                <rect key="frame" x="0.0" y="181" width="414" height="666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBb-bL-cBF">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7J-aa-5EH">
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="Vf9-11-eAW">
+                                    <barButtonItem title="Liste" id="3sS-wy-eui">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="F7k-Dr-OAy"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="JW8-Cp-kbb"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Zj-88-k2r"/>
-                                    <barButtonItem title="Map" id="WPx-VB-Pp0">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XOV-xL-iRK"/>
+                                    <barButtonItem title="Map" id="cq9-hz-OOm">
                                         <connections>
-                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="XsO-nn-Aq9"/>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="qB5-mL-jOl"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rp0-DE-gCE"/>
-                                    <barButtonItem title="Profil" id="gwy-YD-1sw">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kja-yn-WUI"/>
+                                    <barButtonItem title="Profil" id="XGn-CJ-R5Q">
                                         <connections>
-                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="UZC-Fv-MYJ"/>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="uCt-Gc-64a"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0Lj-is-bcN"/>
-                                    <barButtonItem title="Plus" id="out-8V-let">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LJb-YS-KTH"/>
+                                    <barButtonItem title="Plus" id="z1f-vg-wVw">
                                         <connections>
-                                            <segue destination="cOd-8L-yN1" kind="presentation" id="8im-Ai-VTG"/>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="qRj-pj-cI2"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUn-ZG-9rW">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Plan" id="zkb-50-0qX"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="MBb-bL-cBF" secondAttribute="bottom" id="Xbc-TC-Bc5"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Nra-Ks-tTO"/>
                     </view>
                 </viewController>
@@ -185,13 +180,6 @@
                                 <rect key="frame" x="0.0" y="477" width="414" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-zK-iu8">
-                                <rect key="frame" x="0.0" y="31" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Nom de la randonnée" id="fhR-ti-VkN"/>
-                                </items>
-                            </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-2R-5Mk">
                                 <rect key="frame" x="0.0" y="75" width="414" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -210,15 +198,38 @@
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="sF3-Oy-NpV"/>
+                                    <barButtonItem title="Liste" id="sF3-Oy-NpV">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="e92-jf-un8"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K13-yt-NhY"/>
-                                    <barButtonItem title="Map" id="Fw3-X8-bRn"/>
+                                    <barButtonItem title="Map" id="Fw3-X8-bRn">
+                                        <connections>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="ggs-vU-zUQ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iLH-xH-IZd"/>
-                                    <barButtonItem title="Profil" id="HnC-FF-vzE"/>
+                                    <barButtonItem title="Profil" id="HnC-FF-vzE">
+                                        <connections>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="kWB-li-WbL"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MsT-cE-hTk"/>
-                                    <barButtonItem title="Plus" id="Tzn-uL-EgQ"/>
+                                    <barButtonItem title="Plus" id="Tzn-uL-EgQ">
+                                        <connections>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="dWV-uB-oUI"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de la randonnée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iF-es-rB8">
+                                <rect key="frame" x="125" y="44" width="164" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ctn-dB-cu1"/>
@@ -236,15 +247,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFv-6r-E7z">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Mon profil" id="TYB-lx-7Nj"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pLb-JN-AJG">
-                                <rect key="frame" x="0.0" y="131" width="414" height="146"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -263,15 +267,38 @@
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="Zys-xf-pDK"/>
+                                    <barButtonItem title="Liste" id="Zys-xf-pDK">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="k5n-XM-lo0"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kfx-ZX-j4X"/>
-                                    <barButtonItem title="Map" id="tUU-BD-xOz"/>
+                                    <barButtonItem title="Map" id="tUU-BD-xOz">
+                                        <connections>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="wjU-EC-QWZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tmu-91-N35"/>
-                                    <barButtonItem title="Profil" id="PDU-ge-Cd2"/>
+                                    <barButtonItem title="Profil" id="PDU-ge-Cd2">
+                                        <connections>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="klW-UD-HIm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0yB-jb-yiZ"/>
-                                    <barButtonItem title="Plus" id="TFM-bQ-HVi"/>
+                                    <barButtonItem title="Plus" id="TFM-bQ-HVi">
+                                        <connections>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="02D-ZF-HZv"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mon profil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8C-51-D4g">
+                                <rect key="frame" x="169" y="44" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Nlv-KE-mEm"/>
@@ -289,13 +316,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-Ak-x8I">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Historique" id="aKC-wD-bRp"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xba-pC-mdG">
                                 <rect key="frame" x="0.0" y="97" width="414" height="750"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -305,15 +325,38 @@
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="RuN-sl-KfW"/>
+                                    <barButtonItem title="Liste" id="RuN-sl-KfW">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="m1m-cn-c80"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Xov-K5-gtR"/>
-                                    <barButtonItem title="Map" id="BvY-QR-BvX"/>
+                                    <barButtonItem title="Map" id="BvY-QR-BvX">
+                                        <connections>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="gSq-vL-aQV"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NI1-n0-AkI"/>
-                                    <barButtonItem title="Profil" id="kV4-YY-YJK"/>
+                                    <barButtonItem title="Profil" id="kV4-YY-YJK">
+                                        <connections>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="NYJ-oa-BgI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xqc-wz-WPd"/>
-                                    <barButtonItem title="Plus" id="ZPZ-d4-HYb"/>
+                                    <barButtonItem title="Plus" id="ZPZ-d4-HYb">
+                                        <connections>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="08V-UI-515"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Historique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spt-HA-tAn">
+                                <rect key="frame" x="168" y="44" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2cU-Wq-LcE"/>
@@ -332,30 +375,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6jr-Nf-9ct">
-                                <rect key="frame" x="0.0" y="182" width="414" height="665"/>
+                                <rect key="frame" x="0.0" y="87" width="414" height="760"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjM-JN-6M0">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Mon espace randonnée" id="r12-5b-4dM"/>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Boq-Xn-XKq">
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="rvr-Ql-1dU"/>
+                                    <barButtonItem title="Liste" id="rvr-Ql-1dU">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="N52-ut-qdn"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EPW-0Y-hge"/>
-                                    <barButtonItem title="Map" id="1Ub-3A-KMR"/>
+                                    <barButtonItem title="Map" id="1Ub-3A-KMR">
+                                        <connections>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="ae6-N9-M5l"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5OB-jG-Zc4"/>
-                                    <barButtonItem title="Profil" id="VxL-a4-CW5"/>
+                                    <barButtonItem title="Profil" id="VxL-a4-CW5">
+                                        <connections>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="Uit-6u-Etr"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GXW-Fh-sRc"/>
-                                    <barButtonItem title="Plus" id="Yke-aI-Nug"/>
+                                    <barButtonItem title="Plus" id="Yke-aI-Nug">
+                                        <connections>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="knp-Mc-TFO"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mon espace randonnée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-bo-Hgv">
+                                <rect key="frame" x="117" y="44" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SoZ-6V-Pdk"/>
@@ -363,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRK-no-qVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="80"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="79.6875"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Age-81-8qO">
@@ -374,30 +433,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sDW-b9-ILk">
-                                <rect key="frame" x="0.0" y="182" width="414" height="665"/>
+                                <rect key="frame" x="0.0" y="87" width="414" height="760"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-a1-VLA">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Plus" id="dcC-sn-TWm"/>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qvr-M4-2HB">
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Liste" id="4j7-jS-cWx"/>
+                                    <barButtonItem title="Liste" id="4j7-jS-cWx">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="2Ot-Dd-w9j"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nLX-KK-faX"/>
-                                    <barButtonItem title="Map" id="YQM-XX-XoU"/>
+                                    <barButtonItem title="Map" id="YQM-XX-XoU">
+                                        <connections>
+                                            <segue destination="UZA-Nq-5xA" kind="presentation" id="4p8-z7-t9l"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c9o-qV-Mzj"/>
-                                    <barButtonItem title="Profil" id="kOB-hU-PXe"/>
+                                    <barButtonItem title="Profil" id="kOB-hU-PXe">
+                                        <connections>
+                                            <segue destination="h9T-Lo-vt7" kind="presentation" id="RKP-ZK-IMv"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MU6-hN-zNO"/>
-                                    <barButtonItem title="Plus" id="Thk-Gi-BsB"/>
+                                    <barButtonItem title="Plus" id="Thk-Gi-BsB">
+                                        <connections>
+                                            <segue destination="cOd-8L-yN1" kind="presentation" id="GQE-WR-GBZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQe-So-iqf">
+                                <rect key="frame" x="191" y="44" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sQP-lb-7TC"/>
@@ -405,13 +480,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08j-V7-Ov3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2543" y="80"/>
+            <point key="canvasLocation" x="2542.0289855072465" y="79.6875"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="qRj-pj-cI2"/>
+        <segue reference="uCt-Gc-64a"/>
         <segue reference="dR3-aQ-pfQ"/>
-        <segue reference="wfC-cV-DTz"/>
-        <segue reference="XOS-dZ-dGW"/>
-        <segue reference="F7k-Dr-OAy"/>
+        <segue reference="JW8-Cp-kbb"/>
     </inferredMetricsTieBreakers>
 </document>
