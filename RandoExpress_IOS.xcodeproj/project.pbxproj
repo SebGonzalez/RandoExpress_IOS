@@ -13,6 +13,8 @@
 		F17FB76623DEFC5A006648C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17FB76423DEFC5A006648C7 /* Main.storyboard */; };
 		F17FB76823DEFC5C006648C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17FB76723DEFC5C006648C7 /* Assets.xcassets */; };
 		F17FB76B23DEFC5C006648C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17FB76923DEFC5C006648C7 /* LaunchScreen.storyboard */; };
+		F17FB77423DF0592006648C7 /* Personne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77323DF0592006648C7 /* Personne.swift */; };
+		F17FB77623E07941006648C7 /* Rando.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77523E07941006648C7 /* Rando.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F17FB76723DEFC5C006648C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F17FB76A23DEFC5C006648C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F17FB76C23DEFC5C006648C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17FB77323DF0592006648C7 /* Personne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personne.swift; sourceTree = "<group>"; };
+		F17FB77523E07941006648C7 /* Rando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rando.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		F17FB75F23DEFC5A006648C7 /* RandoExpress_IOS */ = {
 			isa = PBXGroup;
 			children = (
+				F17FB77223DF04C8006648C7 /* Model */,
 				B19DFEA823E08A5400BE2071 /* Controller */,
 				F17FB76023DEFC5A006648C7 /* AppDelegate.swift */,
 				F17FB76223DEFC5A006648C7 /* ViewController.swift */,
@@ -73,6 +78,15 @@
 				F17FB76C23DEFC5C006648C7 /* Info.plist */,
 			);
 			path = RandoExpress_IOS;
+			sourceTree = "<group>";
+		};
+		F17FB77223DF04C8006648C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F17FB77323DF0592006648C7 /* Personne.swift */,
+				F17FB77523E07941006648C7 /* Rando.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +163,8 @@
 				F17FB76323DEFC5A006648C7 /* ViewController.swift in Sources */,
 				B19DFEAA23E08A8600BE2071 /* ListeController.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
+				F17FB77623E07941006648C7 /* Rando.swift in Sources */,
+				F17FB77423DF0592006648C7 /* Personne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
