@@ -19,6 +19,8 @@ class MapController : UIViewController, MKMapViewDelegate{
         let tortuguero = Poi(title: "Le Redon", coordinate: CLLocationCoordinate2D(latitude: 43.245202, longitude: 5.426947), info: "Arret de bus du Redon")
         
         super.viewDidLoad()
+        
+        print(RandoGestionnaire.shared().randos)
     }
     
 }

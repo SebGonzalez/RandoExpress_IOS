@@ -17,6 +17,7 @@
 		F17FB76B23DEFC5C006648C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17FB76923DEFC5C006648C7 /* LaunchScreen.storyboard */; };
 		F17FB77423DF0592006648C7 /* Personne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77323DF0592006648C7 /* Personne.swift */; };
 		F17FB77623E07941006648C7 /* Rando.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77523E07941006648C7 /* Rando.swift */; };
+		F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F17FB76C23DEFC5C006648C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17FB77323DF0592006648C7 /* Personne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personne.swift; sourceTree = "<group>"; };
 		F17FB77523E07941006648C7 /* Rando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rando.swift; sourceTree = "<group>"; };
+		F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandoGestionnaire.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		F17FB75F23DEFC5A006648C7 /* RandoExpress_IOS */ = {
 			isa = PBXGroup;
 			children = (
+				F17FB77723E09229006648C7 /* Gestionnaire */,
 				F17FB77223DF04C8006648C7 /* Model */,
 				B19DFEA823E08A5400BE2071 /* Controller */,
 				F17FB76023DEFC5A006648C7 /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				F17FB77523E07941006648C7 /* Rando.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F17FB77723E09229006648C7 /* Gestionnaire */ = {
+			isa = PBXGroup;
+			children = (
+				F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */,
+			);
+			path = Gestionnaire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 			files = (
 				F17FB76323DEFC5A006648C7 /* ViewController.swift in Sources */,
 				B19DFEAA23E08A8600BE2071 /* ListeController.swift in Sources */,
+				F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
 				F17FB77623E07941006648C7 /* Rando.swift in Sources */,
 				F17FB77423DF0592006648C7 /* Personne.swift in Sources */,

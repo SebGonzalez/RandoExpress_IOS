@@ -10,6 +10,11 @@ import UIKit
 
 class ListeController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(RandoGestionnaire.shared().randos)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
