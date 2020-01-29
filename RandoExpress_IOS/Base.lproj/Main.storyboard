@@ -75,10 +75,69 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-kb-czr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-kb-czr">
                                 <rect key="frame" x="0.0" y="142" width="414" height="705"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="128" id="9Ll-Ri-dNl" customClass="RandoViewCell" customModule="RandoExpress_IOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ll-Ri-dNl" id="EHU-Cv-wxC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vb-mr-PBc">
+                                                    <rect key="frame" x="7" y="0.0" width="48.333333333333336" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Marseille" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZ7-Zo-BBX">
+                                                    <rect key="frame" x="332" y="8" width="68.333333333333314" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="LaDateCool" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cro-JK-07w">
+                                                    <rect key="frame" x="294" y="37.000000000000028" width="100" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="4UD-g4-l2y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Yl-V0e">
+                                                    <rect key="frame" x="7" y="38.000000000000028" width="287" height="59"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="UZ7-Zo-BBX" secondAttribute="trailing" constant="13.67" id="2TK-yU-e76"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ppx-Yl-V0e" secondAttribute="bottom" constant="69.329999999999998" id="328-tn-OtK"/>
+                                                <constraint firstItem="2Vb-mr-PBc" firstAttribute="leading" secondItem="EHU-Cv-wxC" secondAttribute="leading" constant="7" id="38w-Cc-8mB"/>
+                                                <constraint firstAttribute="bottom" secondItem="cro-JK-07w" secondAttribute="bottom" constant="69.329999999999998" id="AZc-gA-608"/>
+                                                <constraint firstItem="Ppx-Yl-V0e" firstAttribute="leading" secondItem="EHU-Cv-wxC" secondAttribute="leading" constant="7" id="CJn-5R-dad"/>
+                                                <constraint firstItem="Ppx-Yl-V0e" firstAttribute="top" secondItem="2Vb-mr-PBc" secondAttribute="bottom" constant="8" id="D28-4I-64R"/>
+                                                <constraint firstItem="UZ7-Zo-BBX" firstAttribute="top" secondItem="EHU-Cv-wxC" secondAttribute="top" constant="8" id="Drd-fz-qOX"/>
+                                                <constraint firstItem="2Vb-mr-PBc" firstAttribute="top" secondItem="EHU-Cv-wxC" secondAttribute="top" id="KDQ-Ej-0nx"/>
+                                                <constraint firstItem="cro-JK-07w" firstAttribute="leading" secondItem="Ppx-Yl-V0e" secondAttribute="trailing" id="QYK-Mz-1rG"/>
+                                                <constraint firstAttribute="trailing" secondItem="cro-JK-07w" secondAttribute="trailing" constant="20" id="T5J-4c-w4c"/>
+                                                <constraint firstItem="cro-JK-07w" firstAttribute="top" secondItem="UZ7-Zo-BBX" secondAttribute="bottom" constant="9" id="zlj-fe-nBT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="date" destination="cro-JK-07w" id="kee-B8-xqF"/>
+                                            <outlet property="descriptionLabel" destination="Ppx-Yl-V0e" id="emb-8n-Aci"/>
+                                            <outlet property="titre" destination="2Vb-mr-PBc" id="vfm-PQ-HQm"/>
+                                            <outlet property="ville" destination="UZ7-Zo-BBX" id="mPD-5c-iy4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="7ur-fR-hUe"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Q7W-aC-3Hy"/>
@@ -89,6 +148,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UTi-aH-7lW"/>
+                    <connections>
+                        <outlet property="tableView" destination="YI0-kb-czr" id="Ds5-nb-IPY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -494,9 +556,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qRj-pj-cI2"/>
-        <segue reference="uCt-Gc-64a"/>
-        <segue reference="ggs-vU-zUQ"/>
-        <segue reference="JW8-Cp-kbb"/>
+        <segue reference="wfC-cV-DTz"/>
+        <segue reference="XOS-dZ-dGW"/>
+        <segue reference="dR3-aQ-pfQ"/>
+        <segue reference="Nfc-Lg-76X"/>
     </inferredMetricsTieBreakers>
 </document>

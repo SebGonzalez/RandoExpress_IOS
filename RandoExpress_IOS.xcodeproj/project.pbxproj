@@ -76,6 +76,7 @@
 		F17FB75F23DEFC5A006648C7 /* RandoExpress_IOS */ = {
 			isa = PBXGroup;
 			children = (
+				F17FB77A23E0A203006648C7 /* Vue */,
 				F17FB77723E09229006648C7 /* Gestionnaire */,
 				F17FB77223DF04C8006648C7 /* Model */,
 				B19DFEA823E08A5400BE2071 /* Controller */,
@@ -104,6 +105,13 @@
 				F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */,
 			);
 			path = Gestionnaire;
+			sourceTree = "<group>";
+		};
+		F17FB77A23E0A203006648C7 /* Vue */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

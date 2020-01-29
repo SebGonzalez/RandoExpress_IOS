@@ -8,11 +8,25 @@
 
 import UIKit
 
+class RandoViewCell: UITableViewCell {
+
+    @IBOutlet weak var titre: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var ville: UILabel!
+}
+
+
 class ListeController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(RandoGestionnaire.shared().randos)
+        tableView.estimatedRowHeight = 85.0;
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,17 +57,14 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     //Cellule à l'index concerné
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //On crée une cellule basique
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "basic")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! RandoViewCell
         //On va lui attribuer un texte en function de sa place
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "Contact us"
-            } else {
-                cell.textLabel?.text = "Visit our Website"
-            }
-        } else {
-            cell.textLabel?.text = "Get more infos"
-        }
+        
+        let rando = RandoGestionnaire.shared().randos[indexPath.row]
+        cell.titre.text = rando.name
+        cell.descriptionLabel.text = rando.description
+        cell.date.text = rando.dateDepart
+        cell.ville.text = rando.ville
         return cell
     }
     
