@@ -52,7 +52,6 @@
 			children = (
 				B19DFEA923E08A8600BE2071 /* ListeController.swift */,
 				B1913DED23E0928B0037FC55 /* MapContoller.swift */,
-				B1913DEF23E096C90037FC55 /* Poi.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -93,6 +92,7 @@
 		F17FB77223DF04C8006648C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B1913DEF23E096C90037FC55 /* Poi.swift */,
 				F17FB77323DF0592006648C7 /* Personne.swift */,
 				F17FB77523E07941006648C7 /* Rando.swift */,
 			);

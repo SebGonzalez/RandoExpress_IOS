@@ -17,5 +17,7 @@ class Poi: NSObject, MKAnnotation {
         self.title = title
         self.coordinate = coordinate
         self.info = info
+        
+        super.init()
     }
 }
