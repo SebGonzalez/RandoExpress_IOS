@@ -219,6 +219,26 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OrU-N3-0o8">
+                                <rect key="frame" x="209" y="808" width="185" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybride"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ChangeMapTypeButton:" destination="UZA-Nq-5xA" eventType="valueChanged" id="Agv-HJ-lPI"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAS-rL-EAk">
+                                <rect key="frame" x="20" y="808" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Localisation"/>
+                                <connections>
+                                    <action selector="getPosition:" destination="UZA-Nq-5xA" eventType="touchUpInside" id="iI4-O9-rrH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -635,9 +655,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wfC-cV-DTz"/>
-        <segue reference="XOS-dZ-dGW"/>
-        <segue reference="dR3-aQ-pfQ"/>
-        <segue reference="e92-jf-un8"/>
+        <segue reference="qRj-pj-cI2"/>
+        <segue reference="uCt-Gc-64a"/>
+        <segue reference="ggs-vU-zUQ"/>
+        <segue reference="JW8-Cp-kbb"/>
     </inferredMetricsTieBreakers>
 </document>
