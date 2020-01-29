@@ -18,6 +18,8 @@
 		F17FB77423DF0592006648C7 /* Personne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77323DF0592006648C7 /* Personne.swift */; };
 		F17FB77623E07941006648C7 /* Rando.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77523E07941006648C7 /* Rando.swift */; };
 		F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */; };
+		F17FB77E23E19682006648C7 /* RandoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77D23E19682006648C7 /* RandoViewCell.swift */; };
+		F17FB78023E19765006648C7 /* RandoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB77F23E19765006648C7 /* RandoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		F17FB77323DF0592006648C7 /* Personne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personne.swift; sourceTree = "<group>"; };
 		F17FB77523E07941006648C7 /* Rando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rando.swift; sourceTree = "<group>"; };
 		F17FB77823E092E9006648C7 /* RandoGestionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandoGestionnaire.swift; sourceTree = "<group>"; };
+		F17FB77D23E19682006648C7 /* RandoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandoViewCell.swift; sourceTree = "<group>"; };
+		F17FB77F23E19765006648C7 /* RandoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			children = (
 				B19DFEA923E08A8600BE2071 /* ListeController.swift */,
 				B1913DED23E0928B0037FC55 /* MapContoller.swift */,
+				F17FB77F23E19765006648C7 /* RandoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -75,7 +80,7 @@
 		F17FB75F23DEFC5A006648C7 /* RandoExpress_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				F17FB77A23E0A203006648C7 /* Vue */,
+				F17FB77A23E0A203006648C7 /* View */,
 				F17FB77723E09229006648C7 /* Gestionnaire */,
 				F17FB77223DF04C8006648C7 /* Model */,
 				B19DFEA823E08A5400BE2071 /* Controller */,
@@ -107,11 +112,12 @@
 			path = Gestionnaire;
 			sourceTree = "<group>";
 		};
-		F17FB77A23E0A203006648C7 /* Vue */ = {
+		F17FB77A23E0A203006648C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F17FB77D23E19682006648C7 /* RandoViewCell.swift */,
 			);
-			path = Vue;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +195,9 @@
 				B19DFEAA23E08A8600BE2071 /* ListeController.swift in Sources */,
 				F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
+				F17FB78023E19765006648C7 /* RandoController.swift in Sources */,
 				F17FB77623E07941006648C7 /* Rando.swift in Sources */,
+				F17FB77E23E19682006648C7 /* RandoViewCell.swift in Sources */,
 				F17FB77423DF0592006648C7 /* Personne.swift in Sources */,
 				B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */,
 				B1913DF023E096C90037FC55 /* Poi.swift in Sources */,

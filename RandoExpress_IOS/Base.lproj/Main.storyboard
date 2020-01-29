@@ -245,10 +245,10 @@
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="79.6875"/>
         </scene>
-        <!--View Controller-->
+        <!--Rando Controller-->
         <scene sceneID="VTU-gl-noD">
             <objects>
-                <viewController id="eMD-qP-4Yt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="randoc" id="eMD-qP-4Yt" customClass="RandoController" customModule="RandoExpress_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y2Y-WS-dcE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,13 +276,12 @@
                                     <constraint firstAttribute="height" constant="309" id="X18-M5-9W5"/>
                                 </constraints>
                             </mapView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-2R-5Mk">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Nombre de personne inscrite :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-2R-5Mk">
                                 <rect key="frame" x="0.0" y="75" width="414" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="d2I-B9-fV5"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -353,6 +352,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ctn-dB-cu1"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionArea" destination="mnx-DH-SZj" id="yOW-bH-O0A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzk-AK-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -635,9 +637,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wfC-cV-DTz"/>
-        <segue reference="XOS-dZ-dGW"/>
-        <segue reference="dR3-aQ-pfQ"/>
+        <segue reference="dWV-uB-oUI"/>
+        <segue reference="kWB-li-WbL"/>
+        <segue reference="ggs-vU-zUQ"/>
         <segue reference="e92-jf-un8"/>
     </inferredMetricsTieBreakers>
 </document>

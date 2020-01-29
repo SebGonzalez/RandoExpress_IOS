@@ -8,15 +8,6 @@
 
 import UIKit
 
-class RandoViewCell: UITableViewCell {
-
-    @IBOutlet weak var titre: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var ville: UILabel!
-}
-
-
 class ListeController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -69,8 +60,13 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        alert("Bien joué", message : "T'es un beau gosse")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //On crée une instance d'Exercice à partir du storyboard
+        let randoController = storyboard.instantiateViewController(withIdentifier: "randoc") as! RandoController
+        //On lui attribue le niveau en fonction du bouton
+        randoController.rando = RandoGestionnaire.shared().randos[indexPath.row]
+        //On montre le nouveau controller
+        navigationController?.show(randoController, sender: self)
     }
     
     func alert(_ title: String, message: String) {
