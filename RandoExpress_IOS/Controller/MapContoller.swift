@@ -14,7 +14,7 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapView : MKMapView!
     
-    // San José Capitale du Costa Rica pour centrer la carte
+    // Luminy pour centrer la carte
     var latitudeInit: Double = 43.232230
     var longitudeInit: Double = 5.435990
     var coordinateInit :  CLLocationCoordinate2D {
@@ -26,10 +26,14 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let span = MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3)
-        let region = MKCoordinateRegion(center: coordinateInit, span: span)
+        print("getPosition")
+        if userPosition != nil {
+            setupMap(coordonnees: userPosition!.coordinate, myLat: 0.5, myLong: 0.5)
+        } else {
+            setupMap(coordonnees: coordinateInit, myLat: 0.5, myLong: 0.5)
+        }
+        
         mapView.showsUserLocation = true
-        mapView.setRegion(region, animated: true)
         mapView.delegate = self
         mapView.isRotateEnabled = true
         
