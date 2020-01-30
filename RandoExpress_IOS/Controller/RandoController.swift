@@ -16,6 +16,7 @@ class RandoController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionArea.text = rando.description
+        print(rando)
     }
     
     

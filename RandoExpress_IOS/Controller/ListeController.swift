@@ -15,7 +15,6 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(RandoGestionnaire.shared().randos)
         tableView.estimatedRowHeight = 85.0;
         tableView.rowHeight = UITableView.automaticDimension
     }
@@ -66,7 +65,8 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
         //On lui attribue le niveau en fonction du bouton
         randoController.rando = RandoGestionnaire.shared().randos[indexPath.row]
         //On montre le nouveau controller
-        navigationController?.show(randoController, sender: self)
+        //navigationController?.show(randoController, sender: self)
+        self.present(randoController, animated: true, completion: nil)
     }
     
     func alert(_ title: String, message: String) {
