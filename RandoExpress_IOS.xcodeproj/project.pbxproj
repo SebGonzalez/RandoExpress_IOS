@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DED23E0928B0037FC55 /* MapContoller.swift */; };
 		B1913DF023E096C90037FC55 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DEF23E096C90037FC55 /* Poi.swift */; };
+		B1913DF223E1D7960037FC55 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DF123E1D7960037FC55 /* ProfilController.swift */; };
+		B1913DF423E1DD160037FC55 /* ProfilViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DF323E1DD160037FC55 /* ProfilViewCell.swift */; };
 		B19DFEAA23E08A8600BE2071 /* ListeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFEA923E08A8600BE2071 /* ListeController.swift */; };
 		F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB76023DEFC5A006648C7 /* AppDelegate.swift */; };
 		F17FB76323DEFC5A006648C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FB76223DEFC5A006648C7 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		B1913DED23E0928B0037FC55 /* MapContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContoller.swift; sourceTree = "<group>"; };
 		B1913DEF23E096C90037FC55 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
+		B1913DF123E1D7960037FC55 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
+		B1913DF323E1DD160037FC55 /* ProfilViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewCell.swift; sourceTree = "<group>"; };
 		B19DFEA923E08A8600BE2071 /* ListeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeController.swift; sourceTree = "<group>"; };
 		F17FB75D23DEFC5A006648C7 /* RandoExpress_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandoExpress_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17FB76023DEFC5A006648C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 				B19DFEA923E08A8600BE2071 /* ListeController.swift */,
 				B1913DED23E0928B0037FC55 /* MapContoller.swift */,
 				F17FB77F23E19765006648C7 /* RandoController.swift */,
+				B1913DF123E1D7960037FC55 /* ProfilController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				F17FB77D23E19682006648C7 /* RandoViewCell.swift */,
+				B1913DF323E1DD160037FC55 /* ProfilViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F17FB76323DEFC5A006648C7 /* ViewController.swift in Sources */,
+				B1913DF223E1D7960037FC55 /* ProfilController.swift in Sources */,
 				B19DFEAA23E08A8600BE2071 /* ListeController.swift in Sources */,
 				F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
@@ -200,6 +207,7 @@
 				F17FB77E23E19682006648C7 /* RandoViewCell.swift in Sources */,
 				F17FB77423DF0592006648C7 /* Personne.swift in Sources */,
 				B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */,
+				B1913DF423E1DD160037FC55 /* ProfilViewCell.swift in Sources */,
 				B1913DF023E096C90037FC55 /* Poi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

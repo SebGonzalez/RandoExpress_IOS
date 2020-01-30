@@ -18,6 +18,8 @@ class RandoGestionnaire {
     }()
     
     var randos = [Rando]()
+    var personnes = [Personne]()
+    
     
     // Initialization
     
@@ -31,6 +33,8 @@ class RandoGestionnaire {
         randos.append(rando1)
         randos.append(rando2)
         
+        personnes.append(personne)
+        personnes.append(personne2)
     }
     
     // MARK: - Accessors
