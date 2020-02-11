@@ -42,7 +42,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIg-Bb-fqC">
-                                <rect key="frame" x="27" y="207" width="361" height="30"/>
+                                <rect key="frame" x="27" y="237" width="361" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -56,14 +56,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGA-Ug-Qxz">
-                                <rect key="frame" x="27" y="181" width="74" height="21"/>
+                                <rect key="frame" x="27" y="211" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="errorEmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQr-Di-gtl">
+                                <rect key="frame" x="27" y="182" width="361" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14578375618614969" blue="0.030074450967871202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="errorPassword" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU0-Fl-z5J">
+                                <rect key="frame" x="27" y="287" width="361" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.1457837562" blue="0.03007445097" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="errorConnexion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tme-tk-P2Q">
+                                <rect key="frame" x="27" y="333" width="361" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.1457837562" blue="0.03007445097" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-sb-35u">
-                                <rect key="frame" x="185" y="273" width="45" height="30"/>
+                                <rect key="frame" x="185" y="333" width="45" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
@@ -76,13 +97,16 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="l2b-Pe-XAe" id="hMS-V7-ghC"/>
+                        <outlet property="errorConnexion" destination="Tme-tk-P2Q" id="X9c-gU-YND"/>
+                        <outlet property="errorEmail" destination="BQr-Di-gtl" id="J2q-ua-wxA"/>
+                        <outlet property="errorPassword" destination="IU0-Fl-z5J" id="nng-7z-BDI"/>
                         <outlet property="password" destination="HIg-Bb-fqC" id="Av2-Hx-8gU"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginToHome" id="Txf-hK-EGO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7a-8n-8MQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="-206"/>
+            <point key="canvasLocation" x="-617.39130434782612" y="-206.25"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="2rm-6A-EYd">
@@ -879,9 +903,9 @@
         <image name="Screen Shot 2020-01-27 at 12.30.24" width="306" height="59"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dWV-uB-oUI"/>
-        <segue reference="kWB-li-WbL"/>
-        <segue reference="ggs-vU-zUQ"/>
-        <segue reference="KtV-Ws-vRt"/>
+        <segue reference="08V-UI-515"/>
+        <segue reference="NYJ-oa-BgI"/>
+        <segue reference="gSq-vL-aQV"/>
+        <segue reference="Txf-hK-EGO"/>
     </inferredMetricsTieBreakers>
 </document>
