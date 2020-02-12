@@ -558,33 +558,31 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de la randonnée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iF-es-rB8">
-                                <rect key="frame" x="125" y="44" width="164" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Nombre de personne inscrite :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-2R-5Mk">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Nombre de personne inscrite :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQz-2R-5Mk">
                                 <rect key="frame" x="0.0" y="82" width="414" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nom de la randonnée" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5RJ-rx-Lae">
+                                <rect key="frame" x="90" y="44" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="trailing" secondItem="mnx-DH-SZj" secondAttribute="trailing" id="3ja-dW-P7M"/>
-                            <constraint firstItem="kQz-2R-5Mk" firstAttribute="top" secondItem="6iF-es-rB8" secondAttribute="bottom" constant="17" id="6ZI-ts-Rt1"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="leading" secondItem="o5R-eu-6F1" secondAttribute="leading" id="7wc-oo-GkT"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="top" secondItem="mnx-DH-SZj" secondAttribute="bottom" constant="30" id="Cbv-Tu-6u6"/>
                             <constraint firstAttribute="trailing" secondItem="om5-pG-a9E" secondAttribute="trailing" id="L5N-OH-jE2"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="trailing" secondItem="kQz-2R-5Mk" secondAttribute="trailing" id="LiC-IT-ewB"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="trailing" secondItem="A7I-wS-CLm" secondAttribute="trailing" id="LiY-Vd-w6Q"/>
                             <constraint firstItem="o5R-eu-6F1" firstAttribute="top" secondItem="om5-pG-a9E" secondAttribute="bottom" constant="73" id="RF6-Wl-7sa"/>
-                            <constraint firstItem="6iF-es-rB8" firstAttribute="top" secondItem="Ctn-dB-cu1" secondAttribute="top" id="T1Y-My-DhP"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="top" secondItem="Y2Y-WS-dcE" secondAttribute="top" constant="345" id="Wm5-jH-kin"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="trailing" secondItem="iLZ-x1-DWV" secondAttribute="trailing" id="XPL-OE-09s"/>
-                            <constraint firstItem="6iF-es-rB8" firstAttribute="top" secondItem="Ctn-dB-cu1" secondAttribute="top" id="YCK-E3-QXV"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="trailing" secondItem="o5R-eu-6F1" secondAttribute="trailing" id="Zzr-qf-BHG"/>
                             <constraint firstItem="iLZ-x1-DWV" firstAttribute="top" secondItem="o5R-eu-6F1" secondAttribute="bottom" constant="8" symbolic="YES" id="bvi-fN-HMz"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="leading" secondItem="iLZ-x1-DWV" secondAttribute="leading" id="c5j-D1-Fdx"/>
@@ -594,7 +592,6 @@
                             <constraint firstAttribute="bottom" secondItem="A7I-wS-CLm" secondAttribute="bottom" id="lwb-Lq-tu6"/>
                             <constraint firstItem="A7I-wS-CLm" firstAttribute="top" secondItem="o5R-eu-6F1" secondAttribute="bottom" constant="57" id="pee-6G-EO3"/>
                             <constraint firstItem="iLZ-x1-DWV" firstAttribute="bottom" secondItem="A7I-wS-CLm" secondAttribute="top" id="qYy-CW-XxR"/>
-                            <constraint firstItem="6iF-es-rB8" firstAttribute="centerX" secondItem="kQz-2R-5Mk" secondAttribute="centerX" id="qwb-bv-ayp"/>
                             <constraint firstItem="om5-pG-a9E" firstAttribute="leading" secondItem="A7I-wS-CLm" secondAttribute="leading" id="y4K-BV-Kxj"/>
                             <constraint firstItem="mnx-DH-SZj" firstAttribute="top" secondItem="kQz-2R-5Mk" secondAttribute="bottom" constant="8" symbolic="YES" id="znT-g6-FJH"/>
                         </constraints>
@@ -602,7 +599,10 @@
                     </view>
                     <connections>
                         <outlet property="descriptionArea" destination="mnx-DH-SZj" id="yOW-bH-O0A"/>
+                        <outlet property="labelTitle" destination="5RJ-rx-Lae" id="upa-qZ-6Wr"/>
                         <outlet property="mapView" destination="o5R-eu-6F1" id="Rer-ov-KYq"/>
+                        <outlet property="nbPers" destination="kQz-2R-5Mk" id="7kZ-Xg-pH0"/>
+                        <outlet property="userInfo" destination="om5-pG-a9E" id="ARp-Uj-NkR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzk-AK-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>

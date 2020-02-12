@@ -12,6 +12,9 @@ import MapKit
 class RandoController : UIViewController, MKMapViewDelegate {
     
     @IBOutlet var descriptionArea : UITextView!
+    @IBOutlet var labelTitle : UITextView!
+    @IBOutlet var nbPers : UITextView!
+    @IBOutlet var userInfo : UITextView!
     @IBOutlet weak var mapView: MKMapView!
     var rando : Rando!
     
@@ -32,7 +35,10 @@ class RandoController : UIViewController, MKMapViewDelegate {
         mapView.isRotateEnabled = true
         mapView.addAnnotation(Poi(title: rando.name, coordinate: coordinateInit, info: rando.description, Id: Int(rando.id)))
         
+        labelTitle.text = rando.name
         descriptionArea.text = rando.description
+        userInfo.text = "Information sur le créateur de la randonnée : \n" + rando.owner.firstName + " " + rando.owner.name
+        nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
         print(rando)
     }
     
