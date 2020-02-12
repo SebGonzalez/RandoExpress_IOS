@@ -23,7 +23,7 @@ class AuthGestionnaire {
     // Initialization
     
     private init() {
-        let tag = "com.luminy.randoexpress.jwt".data(using: .utf8)!
+        let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
         let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
                                        kSecAttrApplicationTag as String: tag,
@@ -45,12 +45,14 @@ class AuthGestionnaire {
     }
     
     func saveJWT(jwtSave : String) throws {
-        let tag = "com.luminy.randoexpress.jwt".data(using: .utf8)!
+        let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         let addquery: [String: Any] = [kSecClass as String: kSecClassKey,
                                        kSecAttrApplicationTag as String: tag,
-                                       kSecValueRef as String: jwtSave]
+                                       kSecValueRef as String: jwtSave.data(using: String.Encoding.utf8)]
         
         let status = SecItemAdd(addquery as CFDictionary, nil)
+        print("status : ")
+        print(status)
         guard status == errSecSuccess else { throw  "erreur"  }
     }
     
