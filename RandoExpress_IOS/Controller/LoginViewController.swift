@@ -45,6 +45,11 @@ class LoginViewController : UIViewController {
             errorConnexion.text = json["message"]
         }
         else {
+            do {
+                try AuthGestionnaire.shared().saveJWT(jwtSave: json["jwt"] ?? "")
+            } catch(let error) {
+                print(error)
+            }
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
     }
