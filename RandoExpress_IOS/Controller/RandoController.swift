@@ -30,7 +30,7 @@ class RandoController : UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
         mapView.delegate = self
         mapView.isRotateEnabled = true
-        mapView.addAnnotation(Poi(title: rando.name, coordinate: coordinateInit, info: rando.description))
+        mapView.addAnnotation(Poi(title: rando.name, coordinate: coordinateInit, info: rando.description, Id: Int(rando.id)))
         
         descriptionArea.text = rando.description
         print(rando)

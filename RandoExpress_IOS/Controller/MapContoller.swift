@@ -49,7 +49,7 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let randos = RandoGestionnaire.shared().randos
         
         for r in randos {
-            mapView.addAnnotation(Poi(title: r.name, coordinate: CLLocationCoordinate2D(latitude: (r.latitude as NSString).doubleValue, longitude: (r.longitude as NSString).doubleValue), info: r.description))
+            mapView.addAnnotation(Poi(title: r.name, coordinate: CLLocationCoordinate2D(latitude: (r.latitude as NSString).doubleValue, longitude: (r.longitude as NSString).doubleValue), info: r.description, Id: Int(r.id)))
         }
         
         let capitalArea = MKCircle(center: coordinateInit, radius: 5000) // rayon de 5 km
@@ -77,12 +77,13 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // placer le titre et l'info du Poi dans l'alerte
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let poi = view.annotation as? Poi else { return }
-        let placeName = poi.title
-        let placeInfo = poi.info
         
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //On crée une instance d'Exercice à partir du storyboard
+        let randoController = storyboard.instantiateViewController(withIdentifier: "randoc") as! RandoController
+        //On lui attribue le niveau en fonction du bouton
+        randoController.rando = RandoGestionnaire.shared().randos[poi.Id]
+        self.present(randoController, animated: true, completion: nil)
     }
     
     @IBAction func ChangeMapTypeButton(_ sender: UISegmentedControl) {
@@ -104,7 +105,7 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func getPosition(_ sender: Any) {
         print("getPosition")
         if userPosition != nil {
-            setupMap(coordonnees: userPosition!.coordinate, myLat: 1, myLong: 1)
+            setupMap(coordonnees: userPosition!.coordinate, myLat: 0.5, myLong: 0.5)
         } else {
             print("nil dans getPosition")
         }
