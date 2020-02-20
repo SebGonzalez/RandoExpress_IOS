@@ -12,7 +12,7 @@ extension String: Error {}
 
 class AuthGestionnaire {
     
-    var jwt :SecKey?
+    var jwt :String?
     
     private static var sharedAuthGestionnaire: AuthGestionnaire = {
         let authGestionnaire = AuthGestionnaire()
@@ -27,14 +27,14 @@ class AuthGestionnaire {
         
         let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
                                        kSecAttrApplicationTag as String: tag,
-                                       kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
-                                       kSecReturnRef as String: true]
+                                       kSecReturnData as String: true]
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         //guard status == errSecSuccess else { }
         if(status == errSecSuccess) {
-            jwt = item as! SecKey
+            var data = item as! Data
+            jwt = String(decoding: data, as: UTF8.self)
         }
         else {
             jwt = nil
@@ -45,7 +45,11 @@ class AuthGestionnaire {
     }
     
     func saveJWT(jwtSave : String) throws {
-        let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
+        let value: Data = jwtSave.data(using: .utf8)!
+        let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
+        
+        addToKeychain(value, tag: tag)
+       /* let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         let addquery: [String: Any] = [kSecClass as String: kSecClassKey,
                                        kSecAttrApplicationTag as String: tag,
                                        kSecValueRef as String: jwtSave.data(using: String.Encoding.utf8)]
@@ -53,7 +57,55 @@ class AuthGestionnaire {
         let status = SecItemAdd(addquery as CFDictionary, nil)
         print("status : ")
         print(status)
-        guard status == errSecSuccess else { throw  "erreur"  }
+        guard status == errSecSuccess else { throw  "erreur"  }*/
+        
+        
+        
+    }
+    
+    @discardableResult
+    func addToKeychain(_ value: Data, tag: Data) -> Bool {
+        let attributes: [String: Any] = [
+            String(kSecClass): kSecClassKey,
+            String(kSecAttrApplicationTag): tag,
+            String(kSecValueData): value
+        ]
+        
+        var result: CFTypeRef? = nil
+        let status = SecItemAdd(attributes as CFDictionary, &result)
+        if status == errSecSuccess {
+            print("Successfully added to keychain.")
+        } else {
+            if let error: String = SecCopyErrorMessageString(status, nil) as String? {
+                print(error)
+            }
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    @discardableResult
+    func removeFromKeychain(_ value: Data, tag: Data) -> Bool {
+        let attributes: [String: Any] = [
+            String(kSecClass): kSecClassKey,
+            String(kSecAttrApplicationTag): tag,
+            String(kSecValueData): value
+        ]
+        
+        let status = SecItemDelete(attributes as CFDictionary)
+        if status == errSecSuccess {
+            print("Successfully removed from keychain.")
+        } else {
+            if let error: String = SecCopyErrorMessageString(status, nil) as String? {
+                print(error)
+            }
+            
+            return false
+        }
+        
+        return true
     }
     
     class func shared() -> AuthGestionnaire {

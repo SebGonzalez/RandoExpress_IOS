@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if(AuthGestionnaire.shared().jwt != nil) {
+            print("Compte restauré")
+            if let rvc = self.window?.rootViewController {
+                self.window!.rootViewController = rvc.storyboard!.instantiateViewController(withIdentifier: "home")
+            }
+        }
         return true
     }
 
