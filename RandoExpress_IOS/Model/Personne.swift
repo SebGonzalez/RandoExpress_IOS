@@ -11,7 +11,8 @@ import Foundation
 struct Personne {
     
     var id :UInt
-    var name :String
+    var email :String
+    var lastName :String
     var firstName :String
-    var uuid :String
+    var password :String
 }
