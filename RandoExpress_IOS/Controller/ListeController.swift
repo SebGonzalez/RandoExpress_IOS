@@ -13,16 +13,17 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cellSpacingHeight: CGFloat = 5
+    let cellSpacingHeight: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(RandoGestionnaire.shared().randos.count)
         tableView.estimatedRowHeight = 85.0;
         tableView.rowHeight = UITableView.automaticDimension
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return RandoGestionnaire.shared().randos.count
     }
     
     // Set the spacing between sections
@@ -32,17 +33,12 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     
     //Titres des en-têtes de chaque section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //On récupère le numéro de section concerné
-        switch section {
-        default: return ""
-        }
+        return ""
     }
     
     //Nombre de rangées par section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        default: return 1
-        }
+        return 1
     }
     
     //Cellule à l'index concerné
@@ -52,7 +48,7 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! RandoViewCell
         //On va lui attribuer un texte en function de sa place
         
-        let rando = RandoGestionnaire.shared().randos[indexPath.row]
+        let rando = RandoGestionnaire.shared().randos[indexPath.section]
         cell.titre.text = rando.name
         cell.descriptionLabel.text = rando.description
         cell.date.text = rando.dateDepart

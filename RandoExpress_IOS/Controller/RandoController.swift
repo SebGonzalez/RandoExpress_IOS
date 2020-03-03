@@ -11,10 +11,10 @@ import MapKit
 
 class RandoController : UIViewController, MKMapViewDelegate {
     
-    @IBOutlet var descriptionArea : UITextView!
+    @IBOutlet var descriptionArea : UILabel!
     @IBOutlet var labelTitle : UITextView!
     @IBOutlet var nbPers : UITextView!
-    @IBOutlet var userInfo : UITextView!
+    @IBOutlet var userInfo : UILabel!
     @IBOutlet weak var mapView: MKMapView!
     var rando : Rando!
     

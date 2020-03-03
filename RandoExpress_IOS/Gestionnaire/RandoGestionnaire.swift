@@ -37,6 +37,8 @@ class RandoGestionnaire {
         personnes.append(personne2)*/
         
         getRandos()
+        print("Nombre de randos chargès : ")
+        print(randos.count)
     }
     
     func getRandos() {
