@@ -13,6 +13,8 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet weak var tableView: UITableView!
     
+    let cellSpacingHeight: CGFloat = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 85.0;
@@ -20,15 +22,18 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 10
+    }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
     }
     
     //Titres des en-têtes de chaque section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //On récupère le numéro de section concerné
         switch section {
-        case 0: return "Get some help"
         default: return ""
         }
     }
@@ -36,8 +41,7 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     //Nombre de rangées par section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 2 //Deux items dans la premiere section
-        default: return 0
+        default: return 1
         }
     }
     
@@ -53,17 +57,23 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
         cell.descriptionLabel.text = rando.description
         cell.date.text = rando.dateDepart
         cell.ville.text = rando.ville
+        
+        // add border and color
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //On crée une instance d'Exercice à partir du storyboard
+
         let randoController = storyboard.instantiateViewController(withIdentifier: "randoc") as! RandoController
-        //On lui attribue le niveau en fonction du bouton
+
         randoController.rando = RandoGestionnaire.shared().randos[indexPath.row]
-        //On montre le nouveau controller
-        //navigationController?.show(randoController, sender: self)
         self.present(randoController, animated: true, completion: nil)
     }
     

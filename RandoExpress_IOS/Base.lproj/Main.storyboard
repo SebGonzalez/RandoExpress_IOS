@@ -293,12 +293,12 @@
                                 <rect key="frame" x="0.0" y="86" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-kb-czr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-kb-czr">
                                 <rect key="frame" x="0.0" y="142" width="414" height="705"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="128" id="9Ll-Ri-dNl" customClass="RandoViewCell" customModule="RandoExpress_IOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ll-Ri-dNl" id="EHU-Cv-wxC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="127.66666666666667"/>
@@ -776,8 +776,8 @@
         <image name="Screen Shot 2020-01-27 at 12.30.24" width="306" height="59"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uCt-Gc-64a"/>
-        <segue reference="wjU-EC-QWZ"/>
+        <segue reference="XOS-dZ-dGW"/>
+        <segue reference="dR3-aQ-pfQ"/>
         <segue reference="qYH-0E-PBO"/>
         <segue reference="trC-rB-X1j"/>
     </inferredMetricsTieBreakers>

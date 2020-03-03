@@ -11,7 +11,6 @@ import Foundation
 struct Personne {
     
     var id :UInt
-    var email :String
     var lastName :String
     var firstName :String
     var mail :String
@@ -29,7 +28,7 @@ extension Personne {
             return nil
         }
         self.id = UInt(id)
-        self.name = name
+        self.lastName = name
         self.firstName = firstName
         self.mail = mail
         self.password = password
