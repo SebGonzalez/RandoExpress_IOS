@@ -37,6 +37,27 @@ class SignUpViewController : UIViewController {
         errorFirstname.text = ""
         errorLastname.text = ""
         
+        if(!isValidEmail(email.text ?? "") ) {
+            errorEmail.text = "Merci d'entrer un mail valide"
+            return
+        }
+        if(!isValidPassword(password.text ?? "")) {
+            errorPassword.text = "Merci d'entrer un mot de passe de plus de 5 caractères"
+            return
+        }
+        
+        if(firstname.text == "") {
+            errorEmail.text = "Merci d'entrer un prénom valide"
+            return
+        }
+        
+        
+        if(lastname.text == "") {
+            errorEmail.text = "Merci d'entrer un nom valide"
+            return
+        }
+       
+        
         if password.text != passwordConfirm.text {
             let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -45,22 +66,17 @@ class SignUpViewController : UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         else{
-            /*
-            Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
-                if error == nil {
-                    self.performSegue(withIdentifier: "signupToHome", sender: self)
-                }
-                else{
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
+            let json : [String: String] = signup()
+            print(json)
             
+            if( json["message"] != "Personne ajoutée") {
+                errorConnexion.text = json["message"]
+                
             }
-            */
-            self.performSegue(withIdentifier: "signupToHome", sender: self)
+            else {
+                self.performSegue(withIdentifier: "signupToLogin", sender: self)
+            }
+            
         }
     }
     
@@ -81,42 +97,9 @@ class SignUpViewController : UIViewController {
         return true
     }
     
-    @IBAction func signupButtonTapped(_ sender: Any) {
-        print("Sign up button tapped")
-        
-        // Validate required fields are not empty
-        if (firstname.text?.isEmpty)! ||
-            (lastname.text?.isEmpty)! ||
-            (email.text?.isEmpty)! ||
-            (password.text?.isEmpty)!
-        {
-            // Display Alert message and return
-            //displayMessage(userMessage: "All fields are quired to fill in")
-            return
-        }
-        
-        // Validate password
-        if ((password.text?.elementsEqual(passwordConfirm.text!))! != true)
-        {
-            // Display alert message and return
-            //displayMessage(userMessage: "Please make sure that passwords match")
-            return
-        }
-        
-        //Create Activity Indicator
-        let myActivityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
-        
-        // Position Activity Indicator in the center of the main view
-        myActivityIndicator.center = view.center
-        
-        // If needed, you can prevent Acivity Indicator from hiding when stopAnimating() is called
-        myActivityIndicator.hidesWhenStopped = false
-        
-        // Start Activity Indicator
-        myActivityIndicator.startAnimating()
-        
-        view.addSubview(myActivityIndicator)
-        
+    func signup() -> [String: String] {
+        var json = [String: String]()
+        var done = false;
         
         // Send HTTP Request to Register user
         let myUrl = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/personne")
@@ -126,65 +109,54 @@ class SignUpViewController : UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let postString = ["firstName": firstname.text!,
-                          "lastName": lastname.text!,
-                          "email": email.text!,
+                          "name": lastname.text!,
+                          "mail": email.text!,
                           "password": password.text!,
                           ] as [String: String]
         
+        var jsonData : Data!
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-            //displayMessage(userMessage: "Something went wrong. Try again.")
-            return
+            jsonData = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
         }
+        catch {
+            print(error)
+        }
+        request.httpBody = jsonData
         
-        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                    print("error", error ?? "Unknown error")
+                    return
+            }
             
-            //self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-            
-            if error != nil
-            {
-                //self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                print("error=\(String(describing: error))")
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
                 return
             }
             
-            
-            //Let's convert response sent from a server side code to a NSDictionary object:
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:String]
                 
-                if let parseJSON = json {
-                    
-                    
-                    let userId = parseJSON["userId"] as? String
-                    print("User id: \(String(describing: userId!))")
-                    
-                    if (userId?.isEmpty)!
-                    {
-                        // Display an Alert dialog with a friendly error message
-                        //self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                        return
-                    } else {
-                        //self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to Sign in")
-                    }
-                    
-                } else {
-                    //Display an Alert dialog with a friendly error message
-                    //self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-                }
+                print(json)
+                print(json["jwt"])
+                print(json["message"])
+                
             } catch {
-                
-                //self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-                
-                // Display an Alert dialog with a friendly error message
-                //self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
                 print(error)
             }
+            done = true
         }
         
         task.resume()
+        
+        repeat {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+        } while !done
+        
+        return json;
         
     }
     
