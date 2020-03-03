@@ -49,18 +49,6 @@ class AuthGestionnaire {
         let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
         addToKeychain(value, tag: tag)
-       /* let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
-        let addquery: [String: Any] = [kSecClass as String: kSecClassKey,
-                                       kSecAttrApplicationTag as String: tag,
-                                       kSecValueRef as String: jwtSave.data(using: String.Encoding.utf8)]
-        
-        let status = SecItemAdd(addquery as CFDictionary, nil)
-        print("status : ")
-        print(status)
-        guard status == errSecSuccess else { throw  "erreur"  }*/
-        
-        
-        
     }
     
     @discardableResult

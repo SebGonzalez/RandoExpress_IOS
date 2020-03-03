@@ -29,7 +29,6 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
         //On récupère le numéro de section concerné
         switch section {
         case 0: return "Get some help"
-        case 1: return "Informations"
         default: return ""
         }
     }
@@ -38,7 +37,6 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 2 //Deux items dans la premiere section
-        case 1: return 1 //Un item dans la deuxieme
         default: return 0
         }
     }

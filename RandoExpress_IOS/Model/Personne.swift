@@ -13,5 +13,24 @@ struct Personne {
     var id :UInt
     var name :String
     var firstName :String
-    var uuid :String
+    var mail :String
+    var password :String
+}
+
+extension Personne {
+    init?(json: [String: Any]) {
+        guard let id = json["id"] as? Int,
+            let name = json["name"] as? String,
+            let firstName = json["firstName"] as? String,
+            let mail = json["mail"] as? String,
+            let password = json["password"] as? String
+        else {
+            return nil
+        }
+        self.id = UInt(id)
+        self.name = name
+        self.firstName = firstName
+        self.mail = mail
+        self.password = password
+    }
 }
