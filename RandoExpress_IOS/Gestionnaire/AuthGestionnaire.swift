@@ -44,11 +44,20 @@ class AuthGestionnaire {
         print(jwt)
     }
     
+    
+    
     func saveJWT(jwtSave : String) throws {
         let value: Data = jwtSave.data(using: .utf8)!
         let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
         addToKeychain(value, tag: tag)
+    }
+    
+    func deleteJWT(jwtSave : String) throws {
+        let value: Data = jwtSave.data(using: .utf8)!
+        let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
+        
+        removeFromKeychain(value, tag: tag)
     }
     
     @discardableResult
