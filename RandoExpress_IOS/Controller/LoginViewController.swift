@@ -39,6 +39,7 @@ class LoginViewController : UIViewController {
         }
         
         let json : [String: String] = login()
+        print("ok")
         print(json)
         
         if( json["message"] != "Connexion validé") {
@@ -47,6 +48,7 @@ class LoginViewController : UIViewController {
         else {
             do {
                 try AuthGestionnaire.shared().saveJWT(jwtSave: json["jwt"] ?? "")
+                try AuthGestionnaire.shared().savePerson(firstName: json["firstnName"] ?? "", lastName: json["name"] ?? "", email: json["mail"] ?? "")
             } catch(let error) {
                 print(error)
             }
