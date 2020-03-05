@@ -68,8 +68,8 @@
 			children = (
 				B19DFEA923E08A8600BE2071 /* ListeController.swift */,
 				B1913DED23E0928B0037FC55 /* MapContoller.swift */,
-				F17FB77F23E19765006648C7 /* RandoController.swift */,
 				B1913DF123E1D7960037FC55 /* ProfilController.swift */,
+				F17FB77F23E19765006648C7 /* RandoController.swift */,
 				B1D6BE7F23EC518800E92891 /* StartViewController.swift */,
 				B1D6BE8123EC51DE00E92891 /* LoginViewController.swift */,
 				B1D6BE8323EC520D00E92891 /* SignUpViewController.swift */,

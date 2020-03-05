@@ -644,7 +644,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXP-aI-Kxv">
-                                <rect key="frame" x="0.0" y="786" width="414" height="61"/>
+                                <rect key="frame" x="0.0" y="759" width="414" height="88"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Se déconnecter"/>
                                 <connections>
@@ -680,6 +680,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Détails du compte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3me-77-3Xh">
+                                <rect key="frame" x="20" y="89" width="139" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paramètres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksa-PB-4Fz">
+                                <rect key="frame" x="20" y="275" width="88" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-rJ-HP8">
+                                <rect key="frame" x="122" y="334" width="171" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Changer le mot de passe"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-Ka-roS">
+                                <rect key="frame" x="117" y="392" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Historique des randonnées"/>
+                                <connections>
+                                    <segue destination="gkP-EN-6wF" kind="show" id="Igh-PA-vX2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2D-pr-yIq">
+                                <rect key="frame" x="99" y="135" width="203" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64s-p0-BKR">
+                                <rect key="frame" x="99" y="181" width="203" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qf-bY-j2d">
+                                <rect key="frame" x="99" y="227" width="203" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -694,13 +742,18 @@
                         <viewLayoutGuide key="safeArea" id="Nlv-KE-mEm"/>
                     </view>
                     <connections>
+                        <outlet property="changeMdpButton" destination="GIN-rJ-HP8" id="Fai-ox-6GT"/>
                         <outlet property="deconnectButton" destination="jXP-aI-Kxv" id="Nhj-ni-aXr"/>
+                        <outlet property="emailLabel" destination="2qf-bY-j2d" id="YnP-mp-yAv"/>
+                        <outlet property="firstNameLabel" destination="F2D-pr-yIq" id="g0U-K2-e9Z"/>
+                        <outlet property="histoButton" destination="yWR-Ka-roS" id="F1N-oG-5a2"/>
+                        <outlet property="lastNameLabel" destination="64s-p0-BKR" id="oO4-Bi-7Wb"/>
                         <segue destination="y47-YV-pC8" kind="presentation" identifier="moveToLogin" id="trC-rB-X1j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXs-On-itV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="777"/>
+            <point key="canvasLocation" x="1105.7971014492755" y="776.78571428571422"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="e1Y-UR-Dc5">
@@ -817,10 +870,10 @@
         <image name="Screen Shot 2020-01-27 at 12.30.24" width="306" height="59"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XOS-dZ-dGW"/>
-        <segue reference="dR3-aQ-pfQ"/>
-        <segue reference="S0R-uU-Ujm"/>
+        <segue reference="NYJ-oa-BgI"/>
+        <segue reference="wjU-EC-QWZ"/>
+        <segue reference="qYH-0E-PBO"/>
         <segue reference="trC-rB-X1j"/>
-        <segue reference="HoA-dZ-Nyn"/>
+        <segue reference="YyJ-aO-voy"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,17 +11,25 @@ import UIKit
 class ProfilController : UIViewController {
     
     @IBOutlet weak var deconnectButton :UIButton!
+    @IBOutlet weak var changeMdpButton :UIButton!
+    @IBOutlet weak var histoButton :UIButton!
+    @IBOutlet weak var firstNameLabel :UILabel!
+    @IBOutlet weak var lastNameLabel :UILabel!
+    @IBOutlet weak var emailLabel :UILabel!
     
-    //var currentPersonne : Personne
+    var auth :AuthGestionnaire!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        auth = AuthGestionnaire.shared()
+        firstNameLabel.text = auth.getConnectedFirstName()
+        lastNameLabel.text = auth.getConnectedLastName()
+        emailLabel.text = auth.getConnectedEmail()
     }
     
     @IBAction func decoAction() {
         do {
-             try AuthGestionnaire.shared().deleteJWT(jwtSave :AuthGestionnaire.shared().jwt ?? "")
+             try auth.decoFromKeyChain()
         } catch(let error) {
             print(error)
         }
