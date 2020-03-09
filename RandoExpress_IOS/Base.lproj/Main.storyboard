@@ -548,6 +548,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="S'inscire / se désinscrire"/>
+                                <connections>
+                                    <action selector="inscriptionAction" destination="eMD-qP-4Yt" eventType="touchDragInside" id="IQ4-hO-KUm"/>
+                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7I-wS-CLm">
                                 <rect key="frame" x="0.0" y="847" width="414" height="49"/>
@@ -610,13 +613,13 @@
                     </view>
                     <connections>
                         <outlet property="descriptionArea" destination="bGl-C6-ENh" id="BII-jP-ZM8"/>
+                        <outlet property="inscriptionButton" destination="iLZ-x1-DWV" id="v13-2M-cPA"/>
                         <outlet property="labelTitle" destination="5RJ-rx-Lae" id="upa-qZ-6Wr"/>
                         <outlet property="listeBouton" destination="sF3-Oy-NpV" id="eSK-H2-qVa"/>
                         <outlet property="mapBouton" destination="Fw3-X8-bRn" id="jzv-IS-cpl"/>
                         <outlet property="mapView" destination="o5R-eu-6F1" id="Rer-ov-KYq"/>
                         <outlet property="nbPers" destination="kQz-2R-5Mk" id="7kZ-Xg-pH0"/>
                         <outlet property="profilBouton" destination="HnC-FF-vzE" id="Dhk-3m-ROX"/>
-                        <outlet property="userInfo" destination="om5-pG-a9E" id="ARp-Uj-NkR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzk-AK-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1064,9 +1067,9 @@
         <image name="group" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XOS-dZ-dGW"/>
-        <segue reference="dR3-aQ-pfQ"/>
-        <segue reference="cDy-1l-Biy"/>
+        <segue reference="kWB-li-WbL"/>
+        <segue reference="ggs-vU-zUQ"/>
+        <segue reference="KtV-Ws-vRt"/>
         <segue reference="trC-rB-X1j"/>
         <segue reference="YyJ-aO-voy"/>
     </inferredMetricsTieBreakers>

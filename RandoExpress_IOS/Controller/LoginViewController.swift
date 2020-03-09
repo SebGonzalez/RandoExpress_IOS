@@ -48,7 +48,7 @@ class LoginViewController : UIViewController {
         else {
             do {
                 try AuthGestionnaire.shared().saveJWT(jwtSave: json["jwt"] ?? "")
-                try AuthGestionnaire.shared().savePerson(firstName: json["firstnName"] ?? "", lastName: json["name"] ?? "", email: json["mail"] ?? "")
+                try AuthGestionnaire.shared().savePerson(firstName: json["firstnName"] ?? "", lastName: json["name"] ?? "", email: json["mail"] ?? "", id: json["id"] ?? "")
             } catch(let error) {
                 print(error)
             }

@@ -19,6 +19,18 @@ struct Rando {
     var longitude :String
     var owner :Personne
     var persons = [Personne]()
+    
+    func containsPerson(id: UInt) -> Bool{
+        print("Id personne : \(id)")
+        for person in persons {
+            print("Id test : \(person.id)")
+            if(person.id == id) {
+                print("id trouvé : \(person.id)")
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 extension Rando {
@@ -33,7 +45,8 @@ extension Rando {
             let longitude = json["longitude"] as? String,
             let ownerJSON = json["owner"] as? [String: Any],
         
-            let owner = Personne(json: ownerJSON)
+            let owner = Personne(json: ownerJSON),
+            let personsJSON = json["persons"] as? [[String: Any]]
             else {
                 return nil
         }
@@ -47,5 +60,10 @@ extension Rando {
         self.latitude = latitude
         self.longitude = longitude
         self.owner = owner
+        
+        for personJSON in personsJSON {
+            self.persons.append(Personne(json: personJSON)!)
+        }
+        
     }
 }

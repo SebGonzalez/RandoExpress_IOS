@@ -15,7 +15,8 @@ class AuthGestionnaire {
     var jwt :String?
     var firstName :String?
     var lastName :String?
-    var email :String?
+    var email :String
+    var id :String
     
     private static var sharedAuthGestionnaire: AuthGestionnaire = {
         let authGestionnaire = AuthGestionnaire()
@@ -36,13 +37,15 @@ class AuthGestionnaire {
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         //guard status == errSecSuccess else { }
         if(status == errSecSuccess) {
-            var data = item as! Data
+            let data = item as! Data
             jwt = String(decoding: data, as: UTF8.self)
         }
         else {
             jwt = nil
         }
         
+        id = ""
+        email = ""
         ///////////
         print("Le token save : ")
         print(jwt ?? "")
@@ -55,6 +58,9 @@ class AuthGestionnaire {
         
         print("Le mail save : ")
         print(getConnectedEmail())
+        
+        print("Le id save : ")
+        print(getConnectedId())
     }
     
     func getConnectedFirstName() -> String
@@ -69,7 +75,7 @@ class AuthGestionnaire {
         let status2 = SecItemCopyMatching(getquery2 as CFDictionary, &item2)
         //guard status == errSecSuccess else { }
         if(status2 == errSecSuccess) {
-            var data2 = item2 as! Data
+            let data2 = item2 as! Data
             firstName = String(decoding: data2, as: UTF8.self)
             return firstName!
         }
@@ -91,7 +97,7 @@ class AuthGestionnaire {
         let status3 = SecItemCopyMatching(getquery3 as CFDictionary, &item3)
         //guard status == errSecSuccess else { }
         if(status3 == errSecSuccess) {
-            var data3 = item3 as! Data
+            let data3 = item3 as! Data
             lastName = String(decoding: data3, as: UTF8.self)
             return lastName!
         }
@@ -113,18 +119,40 @@ class AuthGestionnaire {
         let status4 = SecItemCopyMatching(getquery4 as CFDictionary, &item4)
         //guard status == errSecSuccess else { }
         if(status4 == errSecSuccess) {
-            var data4 = item4 as! Data
+            let data4 = item4 as! Data
             email = String(decoding: data4, as: UTF8.self)
-            return email!
+            return email
         }
         else {
-            email = nil
+            email = "error"
         }
         
         return "error"
     }
     
-    func savePerson(firstName :String, lastName :String, email :String) throws {
+    func getConnectedId() -> String{
+        let tag = "fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!
+        
+        let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
+                                        kSecAttrApplicationTag as String: tag,
+                                        kSecReturnData as String: true]
+        
+        var item: CFTypeRef?
+        let status = SecItemCopyMatching(getquery as CFDictionary, &item)
+        //guard status == errSecSuccess else { }
+        if(status == errSecSuccess) {
+            let data = item as! Data
+            id = String(decoding: data, as: UTF8.self)
+            return id
+        }
+        else {
+            id = "error"
+        }
+        
+        return "error"
+    }
+    
+    func savePerson(firstName :String, lastName :String, email :String, id :String) throws {
         
         print("before add Le prénom save : ")
         print(firstName)
@@ -135,13 +163,19 @@ class AuthGestionnaire {
         print("before add Le mail save : ")
         print(email)
         
+        self.firstName = firstName
+        self.lastName = lastName
+        self.id = id
+        self.email = email
         addToKeychain(firstName.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.firstnName".data(using: .utf8)!)
         addToKeychain(lastName.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.name".data(using: .utf8)!)
         addToKeychain(email.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.mail".data(using: .utf8)!)
+        addToKeychain(id.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!)
     }
     
     
     func saveJWT(jwtSave : String) throws {
+        self.jwt = jwtSave
         let value: Data = jwtSave.data(using: .utf8)!
         let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
@@ -172,6 +206,11 @@ class AuthGestionnaire {
         let tag3: Data = "fr.luminy.RandoExpress-IOS.keys.mail".data(using: .utf8)!
         
         removeFromKeychain(value3, tag: tag3)
+        
+        let value4: Data = (id ?? "").data(using: .utf8)!
+        let tag4: Data = "fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!
+        
+        removeFromKeychain(value4, tag: tag4)
     }
     
     

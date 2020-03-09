@@ -21,7 +21,9 @@ class RandoController : UIViewController, MKMapViewDelegate {
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
     
+    @IBOutlet weak var inscriptionButton: UIButton!
     var rando : Rando!
+    var inscris = false
     
   
     
@@ -46,10 +48,81 @@ class RandoController : UIViewController, MKMapViewDelegate {
         
         labelTitle.text = rando.name
         descriptionArea.text = rando.description
-        userInfo.text = "Information sur le créateur de la randonnée : \n" + rando.owner.firstName + " " + rando.owner.lastName
+       // userInfo.text = "Information sur le créateur de la randonnée : \n" + rando.owner.firstName + " " + rando.owner.lastName
         nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
-        print(rando)
+        
+        let idP = AuthGestionnaire.shared().id;
+        print("test")
+        print(idP)
+        let idInt = UInt(idP);
+        print(idInt)
+        if(rando.containsPerson(id: idInt ?? 0)) {
+            inscriptionButton.setTitle("Se désinscrire", for: .normal)
+            inscris = true
+        }
+        else {
+            inscriptionButton.setTitle("S'inscrire", for: .normal)
+        }
     }
     
+    @IBAction func inscriptionAction() {
+        if(inscris) {
+            inscriptionButton.setTitle("S'inscrire", for: .normal)
+            inscris = false
+            inscription()
+        }
+        else {
+            inscriptionButton.setTitle("Se désinscrire", for: .normal)
+            inscris = true
+            alert("Résultat :", message: inscription())
+        }
+    }
     
+    func inscription() -> String {
+       var json = [String: String]()
+        var done = false;
+    
+        let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/rando/\(rando.id)/inscription/\(AuthGestionnaire.shared().email)")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                    print("error", error ?? "Unknown error")
+                    return
+            }
+            
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:String]
+            } catch {
+                print(error)
+            }
+            done = true
+        }
+        
+        task.resume()
+        
+        repeat {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+        } while !done
+        
+        return json["message"] ?? "";
+    }
+    
+    func alert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 }

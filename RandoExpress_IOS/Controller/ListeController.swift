@@ -17,7 +17,6 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
     
-    let cellSpacingHeight: CGFloat = 5
     var roundButton = UIButton()
     let cellSpacingHeight: CGFloat = 10
     
@@ -114,7 +113,7 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
 
         let randoController = storyboard.instantiateViewController(withIdentifier: "randoc") as! RandoController
 
-        randoController.rando = RandoGestionnaire.shared().randos[indexPath.row]
+        randoController.rando = RandoGestionnaire.shared().randos[indexPath.section]
         self.present(randoController, animated: true, completion: nil)
     }
     
