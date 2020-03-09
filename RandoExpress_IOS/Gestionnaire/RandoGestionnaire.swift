@@ -25,6 +25,8 @@ class RandoGestionnaire {
     
     private init() {
         getRandos()
+        print("Nombre de randos chargès : ")
+        print(randos.count)
     }
     
     func getRandos() {
