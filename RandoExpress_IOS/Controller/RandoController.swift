@@ -16,12 +16,21 @@ class RandoController : UIViewController, MKMapViewDelegate {
     @IBOutlet var nbPers : UITextView!
     @IBOutlet var userInfo : UITextView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet var listeBouton: UIBarButtonItem!
+    @IBOutlet var mapBouton: UIBarButtonItem!
+    @IBOutlet var profilBouton: UIBarButtonItem!
+    
     var rando : Rando!
     
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listeBouton.image = UIImage(named: "list")
+        mapBouton.image = UIImage(named: "map")
+        profilBouton.image = UIImage(named: "user")
         
         var latitudeInit: Double = (rando.latitude as NSString).doubleValue
         var longitudeInit: Double = (rando.longitude as NSString).doubleValue

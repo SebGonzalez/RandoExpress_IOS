@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B137A2F924125BBD00F672F5 /* addRandoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137A2F824125BBD00F672F5 /* addRandoController.swift */; };
 		B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DED23E0928B0037FC55 /* MapContoller.swift */; };
 		B1913DF023E096C90037FC55 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DEF23E096C90037FC55 /* Poi.swift */; };
 		B1913DF223E1D7960037FC55 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DF123E1D7960037FC55 /* ProfilController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B137A2F824125BBD00F672F5 /* addRandoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRandoController.swift; sourceTree = "<group>"; };
 		B1913DED23E0928B0037FC55 /* MapContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContoller.swift; sourceTree = "<group>"; };
 		B1913DEF23E096C90037FC55 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
 		B1913DF123E1D7960037FC55 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				B1D6BE7F23EC518800E92891 /* StartViewController.swift */,
 				B1D6BE8123EC51DE00E92891 /* LoginViewController.swift */,
 				B1D6BE8323EC520D00E92891 /* SignUpViewController.swift */,
+				B137A2F824125BBD00F672F5 /* addRandoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
 				F17FB78023E19765006648C7 /* RandoController.swift in Sources */,
+				B137A2F924125BBD00F672F5 /* addRandoController.swift in Sources */,
 				F17FB77623E07941006648C7 /* Rando.swift in Sources */,
 				F17FB77E23E19682006648C7 /* RandoViewCell.swift in Sources */,
 				B1D6BE8423EC520D00E92891 /* SignUpViewController.swift in Sources */,

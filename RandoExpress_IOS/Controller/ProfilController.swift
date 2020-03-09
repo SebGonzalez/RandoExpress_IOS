@@ -17,10 +17,19 @@ class ProfilController : UIViewController {
     @IBOutlet weak var lastNameLabel :UILabel!
     @IBOutlet weak var emailLabel :UILabel!
     
+    @IBOutlet var listeBouton: UIBarButtonItem!
+    @IBOutlet var mapBouton: UIBarButtonItem!
+    @IBOutlet var profilBouton: UIBarButtonItem!
+    
     var auth :AuthGestionnaire!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listeBouton.image = UIImage(named: "list")
+        mapBouton.image = UIImage(named: "map")
+        profilBouton.image = UIImage(named: "usero")?.withRenderingMode(.alwaysOriginal)
+        
         auth = AuthGestionnaire.shared()
         firstNameLabel.text = auth.getConnectedFirstName()
         lastNameLabel.text = auth.getConnectedLastName()

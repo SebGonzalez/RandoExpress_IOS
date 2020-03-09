@@ -13,14 +13,58 @@ class ListeController : UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var listeBouton: UIBarButtonItem!
+    @IBOutlet var mapBouton: UIBarButtonItem!
+    @IBOutlet var profilBouton: UIBarButtonItem!
+    
     let cellSpacingHeight: CGFloat = 5
+    var roundButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listeBouton.image = UIImage(named: "listo")?.withRenderingMode(.alwaysOriginal)
+        mapBouton.image = UIImage(named: "map")
+        profilBouton.image = UIImage(named: "user")
+        
+        self.roundButton = UIButton(type: .custom)
+        self.roundButton.setTitleColor(UIColor.orange, for: .normal)
+        self.roundButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControl.Event.touchUpInside)
+        self.view.addSubview(roundButton)
+        
         tableView.estimatedRowHeight = 85.0;
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    override func viewWillLayoutSubviews() {
+        
+        roundButton.layer.cornerRadius = roundButton.layer.frame.size.width/2
+        roundButton.backgroundColor = UIColor.lightGray
+        roundButton.clipsToBounds = true
+        roundButton.setImage(UIImage(named:"plus"), for: .normal)
+        roundButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            roundButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -3),
+            roundButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -53),
+            roundButton.widthAnchor.constraint(equalToConstant: 50),
+            roundButton.heightAnchor.constraint(equalToConstant: 50)])
+    }
+    
+    /** Action Handler for button **/
+    
+    @IBAction func ButtonClick(_ sender: UIButton){
+        
+        print("nbnbnbnbnbnbnbnbnnbnbnbnbnnbnbnbnbnbnnbnbnbnbnbnbnnbnbb")
+        self.performSegue(withIdentifier: "addRandoS", sender: self)
+        
+    }
+    
+    
+    //This method will call when you press button.
+    @objc func fbButtonPressed() {
+        
+        print("Share to fb")
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10
     }

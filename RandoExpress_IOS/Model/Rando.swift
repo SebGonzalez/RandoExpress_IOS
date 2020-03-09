@@ -14,6 +14,7 @@ struct Rando {
     var description :String
     var ville :String
     var dateDepart :String
+    var heureDepart :String
     var latitude :String
     var longitude :String
     var owner :Personne
@@ -27,6 +28,7 @@ extension Rando {
             let description = json["description"] as? String,
             let ville = json["ville"] as? String,
             let dateDepart = json["dateDepart"] as? String,
+            let heureDepart = json["heureDepart"] as? String,
             let latitude = json["latitude"] as? String,
             let longitude = json["longitude"] as? String,
             let ownerJSON = json["owner"] as? [String: Any],
@@ -41,6 +43,7 @@ extension Rando {
         self.description = description
         self.ville = ville
         self.dateDepart = dateDepart
+        self.heureDepart = heureDepart
         self.latitude = latitude
         self.longitude = longitude
         self.owner = owner

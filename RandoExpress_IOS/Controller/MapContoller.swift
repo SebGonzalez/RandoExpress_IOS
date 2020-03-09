@@ -14,6 +14,10 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapView : MKMapView!
     
+    @IBOutlet var listeBouton: UIBarButtonItem!
+    @IBOutlet var mapBouton: UIBarButtonItem!
+    @IBOutlet var profilBouton: UIBarButtonItem!
+    
     // Luminy pour centrer la carte
     var latitudeInit: Double = 43.232230
     var longitudeInit: Double = 5.435990
@@ -25,6 +29,10 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listeBouton.image = UIImage(named: "list")
+        mapBouton.image = UIImage(named: "mapo")?.withRenderingMode(.alwaysOriginal)
+        profilBouton.image = UIImage(named: "user")
         
         print("getPosition")
         if userPosition != nil {
