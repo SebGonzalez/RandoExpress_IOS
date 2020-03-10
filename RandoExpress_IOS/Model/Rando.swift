@@ -35,7 +35,7 @@ struct Rando {
 
 extension Rando {
     init?(json: [String: Any]) {
-        guard let id = json["id"] as? Int,
+        guard let id = json["id"] as? UInt,
             let name = json["name"] as? String,
             let description = json["description"] as? String,
             let ville = json["ville"] as? String,

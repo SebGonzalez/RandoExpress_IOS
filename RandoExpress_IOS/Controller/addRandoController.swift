@@ -36,6 +36,8 @@ class addRandoController : UIViewController{
     
     var auth :AuthGestionnaire!
     
+    var lastId: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +54,7 @@ class addRandoController : UIViewController{
         profilBouton.image = UIImage(named: "user")
         
         auth = AuthGestionnaire.shared()
+
         
         getCurrentUser()
     }
@@ -66,6 +69,11 @@ class addRandoController : UIViewController{
         errorLatitude.text = ""
         
         addRando()
+        print("=========")
+        let lastRandoJson = getLastRando(id: self.lastId)
+        print(lastRandoJson)
+        
+        RandoGestionnaire.shared().randos.append(Rando(json: lastRandoJson)!)
         print("addToList")
         
         self.performSegue(withIdentifier: "addToList", sender: self)
@@ -134,6 +142,7 @@ class addRandoController : UIViewController{
         request.httpMethod = "POST"// Compose a query string
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(AuthGestionnaire.shared().jwt, forHTTPHeaderField: "Authorization")
         
         let postString = ["name": nameTF.text!,
                           "description": descriptionTF.text!,
@@ -142,8 +151,17 @@ class addRandoController : UIViewController{
                           "heureDepart": heureDepartTF.text!,
                           "latitude": latitudeTF.text!,
                           "longitude": longitudeTF.text!,
-                          "owner": self.currentUser,
+                          "owner": [
+                                "id": currentUser.id,
+                                "firstName": currentUser.firstName,
+                                "name": currentUser.lastName,
+                                "mail": currentUser.mail,
+                                "password": currentUser.password
+                                    ] as [String: Any]
                           ] as [String: Any]
+        
+        //RandoGestionnaire.shared().randos.append(Rando(json: postString)!)
+        
         
         var jsonData : Data!
         do {
@@ -170,6 +188,8 @@ class addRandoController : UIViewController{
             
             do {
                 json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:String]
+                print("qklbefuvhqeifuglhqeriguheirmghliughqlgruhiuhseilughqerliuehr")
+                self.lastId = json["id"]
                 
                 print(json)
                 print(json["jwt"])
@@ -190,4 +210,60 @@ class addRandoController : UIViewController{
         return json;
         
     }
+    
+    func getLastRando(id : String) -> [String: Any]{
+        var done = false;
+        var lastRandoJson: [String: Any]
+        
+        let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/rando/id/\(id)")!
+        var request = URLRequest(url: url)
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(AuthGestionnaire.shared().jwt, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        lastRandoJson = [:] as [String: Any]
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let dataResponse = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                    print("error", error ?? "Unknown error")
+                    return
+            }
+            
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            
+            do {
+                let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: .allowFragments)
+                print(jsonResponse)
+                
+                guard let jsonArray = jsonResponse as? [String: Any] else {
+                    print("adios")
+                    return
+                }
+                
+                print("json last add =")
+                print(jsonArray)
+                lastRandoJson = jsonArray
+                
+            } catch {
+                print(error)
+            }
+            done = true
+        }
+        
+        task.resume()
+        
+        repeat {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+        } while !done
+        
+        return lastRandoJson
+        
+    }
+
 }

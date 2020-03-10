@@ -64,6 +64,7 @@ class RandoGestionnaire {
                 for randoJSON in jsonArray {
                     print("okkhhhhhhhhhhhhhhhhhhhhhhhhhhh")
                     print(randoJSON)
+                    print("aaaaaaaaaaaaaaaaaa")
                     self.randos.append(Rando(json: randoJSON)!)
                 }
                 
