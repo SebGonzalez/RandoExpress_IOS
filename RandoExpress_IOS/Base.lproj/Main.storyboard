@@ -549,7 +549,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="S'inscire / se désinscrire"/>
                                 <connections>
-                                    <action selector="inscriptionAction" destination="eMD-qP-4Yt" eventType="touchDragInside" id="IQ4-hO-KUm"/>
+                                    <action selector="inscriptionAction" destination="eMD-qP-4Yt" eventType="touchUpInside" id="cpa-zl-0Go"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7I-wS-CLm">
