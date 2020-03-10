@@ -66,15 +66,46 @@ class RandoController : UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func inscriptionAction() {
+         print("OK")
         if(inscris) {
             inscriptionButton.setTitle("S'inscrire", for: .normal)
             inscris = false
-            inscription()
+            let result = desinscription()
+            print(result)
+            alert("Résultat :", message: result)
+            
+            let idP = UInt(AuthGestionnaire.shared().id)
+            for i in RandoGestionnaire.shared().randos.indices {
+                if(RandoGestionnaire.shared().randos[i].id == rando.id) {
+                    var indiceP = -1
+                    for y in  RandoGestionnaire.shared().randos[i].persons.indices {
+                        if( RandoGestionnaire.shared().randos[i].persons[y].id == idP) {
+                            indiceP = y
+                        }
+                    }
+                    RandoGestionnaire.shared().randos[i].persons.remove(at: indiceP)
+                     rando.persons.remove(at: indiceP)
+                }
+            }
+             nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
         }
         else {
+            print("Inscription")
             inscriptionButton.setTitle("Se désinscrire", for: .normal)
             inscris = true
-            alert("Résultat :", message: inscription())
+            let result = inscription()
+            print(result)
+            alert("Résultat :", message: result)
+            let idP = UInt(AuthGestionnaire.shared().id)
+            
+            for i in RandoGestionnaire.shared().randos.indices {
+                if(RandoGestionnaire.shared().randos[i].id == rando.id) {
+                    RandoGestionnaire.shared().randos[i].persons.append(Personne(id: idP ?? 0, lastName: AuthGestionnaire.shared().lastName ?? "", firstName: AuthGestionnaire.shared().firstName ?? "", mail: AuthGestionnaire.shared().email ?? "", password: ""))
+                }
+            }
+            rando.persons.append(Personne(id: idP ?? 0, lastName: AuthGestionnaire.shared().lastName ?? "", firstName: AuthGestionnaire.shared().firstName ?? "", mail: AuthGestionnaire.shared().email ?? "", password: ""))
+            nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
+            print(rando)
         }
     }
     
@@ -85,6 +116,48 @@ class RandoController : UIViewController, MKMapViewDelegate {
         let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/rando/\(rando.id)/inscription/\(AuthGestionnaire.shared().email)")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(AuthGestionnaire.shared().jwt, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {                                              // check for fundamental networking error
+                    print("error", error ?? "Unknown error")
+                    return
+            }
+            
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:String]
+            } catch {
+                print(error)
+            }
+            done = true
+        }
+        
+        task.resume()
+        
+        repeat {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+        } while !done
+        
+        return json["message"] ?? "";
+    }
+    
+    func desinscription() -> String {
+        var json = [String: String]()
+        var done = false;
+        
+        let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/rando/\(rando.id)/desinscription/\(AuthGestionnaire.shared().email)")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(AuthGestionnaire.shared().jwt, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
