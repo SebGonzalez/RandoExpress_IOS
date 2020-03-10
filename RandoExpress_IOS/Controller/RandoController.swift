@@ -48,7 +48,7 @@ class RandoController : UIViewController, MKMapViewDelegate {
         
         labelTitle.text = rando.name
         descriptionArea.text = rando.description
-       // userInfo.text = "Information sur le créateur de la randonnée : \n" + rando.owner.firstName + " " + rando.owner.lastName
+        userInfo.text = "Information sur le créateur de la randonnée : \n\(rando.owner.firstName) \(rando.owner.lastName)"
         nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
         
         let idP = AuthGestionnaire.shared().id;

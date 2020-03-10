@@ -620,6 +620,7 @@
                         <outlet property="mapView" destination="o5R-eu-6F1" id="Rer-ov-KYq"/>
                         <outlet property="nbPers" destination="kQz-2R-5Mk" id="7kZ-Xg-pH0"/>
                         <outlet property="profilBouton" destination="HnC-FF-vzE" id="Dhk-3m-ROX"/>
+                        <outlet property="userInfo" destination="G1k-wP-blo" id="N2n-ej-eVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzk-AK-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
