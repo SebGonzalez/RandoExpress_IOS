@@ -38,6 +38,8 @@ class addRandoController : UIViewController{
     
     var lastId: String!
     
+    var lastIndex: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,8 +74,11 @@ class addRandoController : UIViewController{
         print("=========")
         let lastRandoJson = getLastRando(id: self.lastId)
         print(lastRandoJson)
-        
-        RandoGestionnaire.shared().randos.append(Rando(json: lastRandoJson)!)
+        print("111111111111111")
+        lastIndex = RandoGestionnaire.shared().getLastBiggerRandoIndex(rando: Rando(json: lastRandoJson)!)
+        print("222222222222222")
+        RandoGestionnaire.shared().randos.insert(Rando(json: lastRandoJson)!, at: lastIndex)
+        print("333333333333333")
         print("addToList")
         
         self.performSegue(withIdentifier: "addToList", sender: self)

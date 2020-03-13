@@ -32,6 +32,7 @@ class ProfilController : UIViewController {
         
         auth = AuthGestionnaire.shared()
         firstNameLabel.text = auth.getConnectedFirstName()
+        print(firstNameLabel.text)
         lastNameLabel.text = auth.getConnectedLastName()
         emailLabel.text = auth.getConnectedEmail()
     }

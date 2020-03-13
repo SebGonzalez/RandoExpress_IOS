@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1134E4D2417FCFA002CD4F0 /* HistoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1134E4C2417FCF9002CD4F0 /* HistoController.swift */; };
+		B1134E4F241A7FBA002CD4F0 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1134E4E241A7FBA002CD4F0 /* ChangePasswordController.swift */; };
 		B137A2F924125BBD00F672F5 /* addRandoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137A2F824125BBD00F672F5 /* addRandoController.swift */; };
 		B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DED23E0928B0037FC55 /* MapContoller.swift */; };
 		B1913DF023E096C90037FC55 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1913DEF23E096C90037FC55 /* Poi.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1134E4C2417FCF9002CD4F0 /* HistoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoController.swift; sourceTree = "<group>"; };
+		B1134E4E241A7FBA002CD4F0 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		B137A2F824125BBD00F672F5 /* addRandoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRandoController.swift; sourceTree = "<group>"; };
 		B1913DED23E0928B0037FC55 /* MapContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContoller.swift; sourceTree = "<group>"; };
 		B1913DEF23E096C90037FC55 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				B1D6BE8123EC51DE00E92891 /* LoginViewController.swift */,
 				B1D6BE8323EC520D00E92891 /* SignUpViewController.swift */,
 				B137A2F824125BBD00F672F5 /* addRandoController.swift */,
+				B1134E4C2417FCF9002CD4F0 /* HistoController.swift */,
+				B1134E4E241A7FBA002CD4F0 /* ChangePasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,12 +225,14 @@
 				F17FB77923E092E9006648C7 /* RandoGestionnaire.swift in Sources */,
 				F17FB76123DEFC5A006648C7 /* AppDelegate.swift in Sources */,
 				F17FB78023E19765006648C7 /* RandoController.swift in Sources */,
+				B1134E4F241A7FBA002CD4F0 /* ChangePasswordController.swift in Sources */,
 				B137A2F924125BBD00F672F5 /* addRandoController.swift in Sources */,
 				F17FB77623E07941006648C7 /* Rando.swift in Sources */,
 				F17FB77E23E19682006648C7 /* RandoViewCell.swift in Sources */,
 				B1D6BE8423EC520D00E92891 /* SignUpViewController.swift in Sources */,
 				B1D6BE8023EC518800E92891 /* StartViewController.swift in Sources */,
 				F17FB78223F4049D006648C7 /* AuthGestionnaire.swift in Sources */,
+				B1134E4D2417FCFA002CD4F0 /* HistoController.swift in Sources */,
 				F17FB77423DF0592006648C7 /* Personne.swift in Sources */,
 				B1913DEE23E0928B0037FC55 /* MapContoller.swift in Sources */,
 				B1913DF423E1DD160037FC55 /* ProfilViewCell.swift in Sources */,

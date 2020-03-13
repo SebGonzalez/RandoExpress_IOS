@@ -65,7 +65,7 @@ class AuthGestionnaire {
     
     func getConnectedFirstName() -> String
     {
-        let tag2 = "fr.luminy.RandoExpress-IOS.keys.firstnName".data(using: .utf8)!
+        let tag2 = "fr.luminy.RandoExpress-IOS.keys.firstName".data(using: .utf8)!
         
         let getquery2: [String: Any] = [kSecClass as String: kSecClassKey,
                                         kSecAttrApplicationTag as String: tag2,
@@ -167,7 +167,7 @@ class AuthGestionnaire {
         self.lastName = lastName
         self.id = id
         self.email = email
-        addToKeychain(firstName.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.firstnName".data(using: .utf8)!)
+        addToKeychain(firstName.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.firstName".data(using: .utf8)!)
         addToKeychain(lastName.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.name".data(using: .utf8)!)
         addToKeychain(email.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.mail".data(using: .utf8)!)
         addToKeychain(id.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!)
@@ -193,7 +193,7 @@ class AuthGestionnaire {
         try deleteJWT()
         
         let value1: Data = (firstName ?? "").data(using: .utf8)!
-        let tag1: Data = "fr.luminy.RandoExpress-IOS.keys.firstnName".data(using: .utf8)!
+        let tag1: Data = "fr.luminy.RandoExpress-IOS.keys.firstName".data(using: .utf8)!
         
         removeFromKeychain(value1, tag: tag1)
         
