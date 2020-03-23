@@ -22,8 +22,11 @@ class RandoController : UIViewController, MKMapViewDelegate {
     @IBOutlet var profilBouton: UIBarButtonItem!
     
     @IBOutlet weak var inscriptionButton: UIButton!
+    @IBOutlet weak var groupImage: UIImageView!
+    
     var rando : Rando!
     var inscris = false
+    var oldRando = false
     
   
     
@@ -52,10 +55,12 @@ class RandoController : UIViewController, MKMapViewDelegate {
         nbPers.text = "Nombre de personnes inscrites: " + String(rando.persons.count)
         
         let idP = AuthGestionnaire.shared().id;
-        print("test")
-        print(idP)
         let idInt = UInt(idP);
-        print(idInt)
+
+       
+        inscriptionButton.isEnabled = !oldRando
+        
+        
         if(rando.containsPerson(id: idInt ?? 0)) {
             inscriptionButton.setTitle("Se désinscrire", for: .normal)
             inscris = true
@@ -63,6 +68,13 @@ class RandoController : UIViewController, MKMapViewDelegate {
         else {
             inscriptionButton.setTitle("S'inscrire", for: .normal)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(RandoController.imageTapped(gesture:)))
+        
+        // add it to the image view;
+        groupImage.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        groupImage.isUserInteractionEnabled = true
     }
     
     @IBAction func inscriptionAction() {
@@ -189,6 +201,26 @@ class RandoController : UIViewController, MKMapViewDelegate {
         } while !done
         
         return json["message"] ?? "";
+    }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            
+            var message = "";
+            
+            for person in rando.persons {
+                message += person.firstName + " " + person.lastName + "\n"
+            }
+            
+            if(rando.persons.count == 0) {
+                message = "Aucune personnes encore inscrites"
+            }
+            
+            alert("Membres inscris", message: message)
+            
+        }
     }
     
     func alert(_ title: String, message: String) {

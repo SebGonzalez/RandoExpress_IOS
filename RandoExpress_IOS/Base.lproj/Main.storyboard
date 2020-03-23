@@ -613,6 +613,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionArea" destination="bGl-C6-ENh" id="BII-jP-ZM8"/>
+                        <outlet property="groupImage" destination="xTb-CS-0aJ" id="uyv-rY-par"/>
                         <outlet property="inscriptionButton" destination="iLZ-x1-DWV" id="v13-2M-cPA"/>
                         <outlet property="labelTitle" destination="5RJ-rx-Lae" id="upa-qZ-6Wr"/>
                         <outlet property="listeBouton" destination="sF3-Oy-NpV" id="eSK-H2-qVa"/>
@@ -822,6 +823,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gkP-EN-6wF" id="zeW-PV-Dgf"/>
+                                    <outlet property="delegate" destination="gkP-EN-6wF" id="Ze6-Pr-Ddv"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Historique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spt-HA-tAn">
                                 <rect key="frame" x="168" y="44" width="79" height="21"/>
@@ -1248,13 +1253,12 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2020-01-27 at 12.30.24" width="306" height="59"/>
-        <image name="group" width="64" height="64"/>
+        <image name="group" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Igh-PA-vX2"/>
-        <segue reference="zls-8i-TMs"/>
-        <segue reference="wjU-EC-QWZ"/>
-        <segue reference="qYH-0E-PBO"/>
+        <segue reference="kWB-li-WbL"/>
+        <segue reference="ggs-vU-zUQ"/>
+        <segue reference="KtV-Ws-vRt"/>
         <segue reference="trC-rB-X1j"/>
         <segue reference="YyJ-aO-voy"/>
     </inferredMetricsTieBreakers>

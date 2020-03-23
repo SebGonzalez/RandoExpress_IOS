@@ -90,7 +90,7 @@ class RandoGestionnaire {
     func getOldRandos() {
         var done = false;
         
-        let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/randos/person/\(auth.getConnectedId())")!
+        let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/randos/person/old/\(auth.getConnectedId())")!
         var request = URLRequest(url: url)
         //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(AuthGestionnaire.shared().jwt, forHTTPHeaderField: "Authorization")

@@ -50,7 +50,6 @@ class HistoController : UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     //Cellule à l'index concerné
-    //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //On crée une cellule basique
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! RandoViewCell
@@ -72,23 +71,14 @@ class HistoController : UIViewController, UITableViewDataSource, UITableViewDele
         return cell
     }
     
-    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let randoController = storyboard.instantiateViewController(withIdentifier: "randoc") as! RandoController
         
         randoController.rando = RandoGestionnaire.shared().oldRandos[indexPath.section]
+        randoController.oldRando = true
         self.present(randoController, animated: true, completion: nil)
     }
-    
-    func alert(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    */
     
 }
