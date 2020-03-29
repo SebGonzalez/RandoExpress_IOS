@@ -8,6 +8,7 @@
 
 import MapKit
 import UIKit
+/// Modèle d'un point repère de la carte.
 class Poi: NSObject, MKAnnotation {
     var title: String?
     var coordinate: CLLocationCoordinate2D

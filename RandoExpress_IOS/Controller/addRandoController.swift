@@ -9,11 +9,13 @@
 import UIKit
 
 class addRandoController : UIViewController{
-    
+
+    /// Boutons de la barre de navigation.
     @IBOutlet var listeBouton: UIBarButtonItem!
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
-    
+
+    /// Les TextFields du formulaire.
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var descriptionTF: UITextField!
     @IBOutlet weak var villeTF: UITextField!
@@ -21,7 +23,8 @@ class addRandoController : UIViewController{
     @IBOutlet weak var heureDepartTF: UITextField!
     @IBOutlet weak var longitudeTF: UITextField!
     @IBOutlet weak var latitudeTF: UITextField!
-    
+
+    /// Les Label servant a montrer les erreurs.
     @IBOutlet weak var errorNom: UILabel!
     @IBOutlet weak var errorDescription : UILabel!
     @IBOutlet weak var errorVille: UILabel!
@@ -29,17 +32,21 @@ class addRandoController : UIViewController{
     @IBOutlet weak var errorHeureDepart: UILabel!
     @IBOutlet weak var errorLongitude: UILabel!
     @IBOutlet weak var errorLatitude: UILabel!
-    
+
+    /// Bouton valider.
     @IBOutlet weak var submitButton: UIButton!
-    
+
+    /// L'utilisateur actuel.
     var currentUser : Personne!
-    
+
+    /// Référence au gestionnaire d'authentification.
     var auth :AuthGestionnaire!
-    
+
     var lastId: String!
     
     var lastIndex: Int!
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +67,14 @@ class addRandoController : UIViewController{
         
         getCurrentUser()
     }
-    
+
+    /**
+     Fonction d'action qui appelle la fontion d'ajout de la randonnée addRando quand on appuis sur le bouton valider.
+     et l'ajoute a la bonne place dans la liste triée
+
+     - Parameters:
+        - _ sender: l'appuis sur le bouton valider
+     */
     @IBAction func addRandoAction(_ sender: Any) {
         errorNom.text = ""
         errorDescription.text = ""
@@ -83,7 +97,8 @@ class addRandoController : UIViewController{
         
         self.performSegue(withIdentifier: "addToList", sender: self)
     }
-    
+
+    /// Initialise l'utilisateur actuel dans la variable currentUser.
     func getCurrentUser(){
         var done = false;
         
@@ -136,7 +151,12 @@ class addRandoController : UIViewController{
             RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
         } while !done
     }
-    
+
+    /**
+     Fonction d'ajout de la randonnée
+
+     - Returns: Retourne un json de type [String: Any].
+     */
     func addRando() -> [String: Any] {
         var json = [String: String]()
         var done = false;
@@ -215,7 +235,15 @@ class addRandoController : UIViewController{
         return json;
         
     }
-    
+
+    /**
+     Récurpère le json de la dernière randonnée ajouté dans la base de données
+
+     - Parameters:
+        - id: l'id de la randonnée
+
+     - Returns: retourne un json de la dernière randonnée de type [String: Any].
+     */
     func getLastRando(id : String) -> [String: Any]{
         var done = false;
         var lastRandoJson: [String: Any]

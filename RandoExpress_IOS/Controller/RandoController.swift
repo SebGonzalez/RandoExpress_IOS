@@ -10,26 +10,30 @@ import UIKit
 import MapKit
 
 class RandoController : UIViewController, MKMapViewDelegate {
-    
+
+    /// Label d'insformation sur la randonnée.
     @IBOutlet var descriptionArea : UILabel!
     @IBOutlet var labelTitle : UITextView!
     @IBOutlet var nbPers : UITextView!
     @IBOutlet var userInfo : UILabel!
+
+    /// MapView nous affichant l'emplacement de la randonnée.
     @IBOutlet weak var mapView: MKMapView!
-    
+
+    /// Boutons de la barre de navigation.
     @IBOutlet var listeBouton: UIBarButtonItem!
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
-    
+
+    /// Bouton d'insription à la randonnée.
     @IBOutlet weak var inscriptionButton: UIButton!
     @IBOutlet weak var groupImage: UIImageView!
     
     var rando : Rando!
     var inscris = false
     var oldRando = false
-    
-  
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +80,8 @@ class RandoController : UIViewController, MKMapViewDelegate {
         // make sure imageView can be interacted with by user
         groupImage.isUserInteractionEnabled = true
     }
-    
+
+    /// Méthode action qui change le bouton en "S'inscrire"/"Se désinscrire" et appelle la méthode correspondante
     @IBAction func inscriptionAction() {
          print("OK")
         if(inscris) {
@@ -120,7 +125,13 @@ class RandoController : UIViewController, MKMapViewDelegate {
             print(rando)
         }
     }
-    
+
+    /**
+     Méthode d'inscription à la randonnée, où l'on ajoute l'utilisateur actuel à la liste
+     des participant.
+
+     - Returns: retourne le message String du json que renvoie l'api.
+     */
     func inscription() -> String {
        var json = [String: String]()
         var done = false;
@@ -161,7 +172,13 @@ class RandoController : UIViewController, MKMapViewDelegate {
         
         return json["message"] ?? "";
     }
-    
+
+    /**
+     Méthode de déinscription de la randonnée, où l'on retire l'utilisateur actuel de la liste
+     des participant.
+
+     - Returns: retourne le message String du json que renvoie l'api.
+     */
     func desinscription() -> String {
         var json = [String: String]()
         var done = false;

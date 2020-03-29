@@ -10,8 +10,9 @@ import Foundation
 
 extension String: Error {}
 
+/// Classe nous permettant de gérer et d'interragire avec l'utilisateur connecté.
 class AuthGestionnaire {
-    
+
     var jwt :String?
     var firstName :String?
     var lastName :String?
@@ -23,9 +24,8 @@ class AuthGestionnaire {
         
         return authGestionnaire
     }()
-    
-    // Initialization
-    
+
+    /// Méthode d'initialisation.
     private init() {
         let tag = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
@@ -62,7 +62,8 @@ class AuthGestionnaire {
         print("Le id save : ")
         print(getConnectedId())
     }
-    
+
+    /// Retourne le prénom de l'utilisateur.
     func getConnectedFirstName() -> String
     {
         let tag2 = "fr.luminy.RandoExpress-IOS.keys.firstName".data(using: .utf8)!
@@ -85,7 +86,8 @@ class AuthGestionnaire {
         
         return "error"
     }
-    
+
+    /// Retourne le nom de l'utilisateur.
     func getConnectedLastName() -> String {
         let tag3 = "fr.luminy.RandoExpress-IOS.keys.name".data(using: .utf8)!
         
@@ -107,7 +109,8 @@ class AuthGestionnaire {
         
         return "error"
     }
-    
+
+    /// Retourne l'email de l'utilisateur.
     func getConnectedEmail() -> String{
         let tag4 = "fr.luminy.RandoExpress-IOS.keys.mail".data(using: .utf8)!
         
@@ -129,7 +132,8 @@ class AuthGestionnaire {
         
         return "error"
     }
-    
+
+    /// Retourne l'id de l'utilisateur.
     func getConnectedId() -> String{
         let tag = "fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!
         
@@ -151,7 +155,17 @@ class AuthGestionnaire {
         
         return "error"
     }
-    
+
+    /**
+     Méthode nous permettant de sauvegarder les caractéristique de la personne connecter
+     dans la KeyChain. permettant de
+
+     - Parameters:
+        - firstName: Le prénom de la personne
+        - lastName: Le nom de la personne
+        - email: L'email de la personne
+        - id: L'id de la personne
+     */
     func savePerson(firstName :String, lastName :String, email :String, id :String) throws {
         
         print("before add Le prénom save : ")
@@ -173,7 +187,7 @@ class AuthGestionnaire {
         addToKeychain(id.data(using: .utf8)!, tag :"fr.luminy.RandoExpress-IOS.keys.id".data(using: .utf8)!)
     }
     
-    
+    /// Sauvegarde le jwt dans la KeyChain.
     func saveJWT(jwtSave : String) throws {
         self.jwt = jwtSave
         let value: Data = jwtSave.data(using: .utf8)!
@@ -181,14 +195,16 @@ class AuthGestionnaire {
         
         addToKeychain(value, tag: tag)
     }
-    
+
+    /// Supprime le jwt de la KeyChain.
     func deleteJWT() throws {
         let value: Data = (jwt ?? "").data(using: .utf8)!
         let tag: Data = "fr.luminy.RandoExpress-IOS.keys.jwt".data(using: .utf8)!
         
         removeFromKeychain(value, tag: tag)
     }
-    
+
+    /// Méthode permettant de retirer l'utilisateur de la KeyChain.
     func decoFromKeyChain() throws {
         try deleteJWT()
         
@@ -212,8 +228,8 @@ class AuthGestionnaire {
         
         removeFromKeychain(value4, tag: tag4)
     }
-    
-    
+
+    /// Méthode d'ajout dans la KeyChain.
     @discardableResult
     func addToKeychain(_ value: Data, tag: Data) -> Bool {
         let attributes: [String: Any] = [
@@ -236,7 +252,8 @@ class AuthGestionnaire {
         
         return true
     }
-    
+
+    /// Méthode de suppression dans la KeyChain.
     @discardableResult
     func removeFromKeychain(_ value: Data, tag: Data) -> Bool {
         let attributes: [String: Any] = [

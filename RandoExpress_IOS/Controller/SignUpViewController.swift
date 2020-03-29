@@ -9,18 +9,22 @@
 import UIKit
 
 class SignUpViewController : UIViewController {
-    
+
+    /// Les TextFields du formulaire.
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var passwordConfirm: UITextField!
+
+    /// Les Label servant a montrer les erreurs.
     @IBOutlet weak var errorFirstname: UILabel!
     @IBOutlet weak var errorLastname: UILabel!
     @IBOutlet weak var errorEmail: UILabel!
     @IBOutlet weak var errorPassword: UILabel!
     @IBOutlet weak var errorConnexion: UILabel!
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         errorEmail.text = ""
@@ -29,7 +33,14 @@ class SignUpViewController : UIViewController {
         errorFirstname.text = ""
         errorLastname.text = ""
     }
-    
+
+    /**
+     Bouton action qui gère la validation du formulaire appel la méthode signUp une fois le formulaire valide
+
+     - Parameters:
+        - _ sender: Appuis sur le bouton valider.
+
+     */
     @IBAction func signUpAction(_ sender: Any) {
         errorEmail.text = ""
         errorPassword.text = ""
@@ -79,14 +90,16 @@ class SignUpViewController : UIViewController {
             
         }
     }
-    
+
+    /// Méthode de validation de l'email.
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-    
+
+    /// Méthode de validation du mot de passe.
     func isValidPassword(_ password: String) -> Bool {
         if(password == "") {
             return false
@@ -96,7 +109,13 @@ class SignUpViewController : UIViewController {
         }
         return true
     }
-    
+
+    /**
+     Méthode d'inscription qui envoie le formulaire valide sous forme de json a l'api pour ajouter
+     le nouveau user.
+
+     - Returns: retourne un json de type [String: String].
+     */
     func signup() -> [String: String] {
         var json = [String: String]()
         var done = false;

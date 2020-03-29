@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// Modèle d'un utilisateur.
 struct Personne {
     
     var id :UInt

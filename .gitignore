@@ -90,3 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+
+RandoExpress_IOS/.idea/vcs.xml
+
+RandoExpress_IOS/.idea/

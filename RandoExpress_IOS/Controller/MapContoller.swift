@@ -11,9 +11,11 @@ import MapKit
 import CoreLocation
 
 class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
-    
+
+    /// MapView nous permettant d'utiliser une carte.
     @IBOutlet weak var mapView : MKMapView!
-    
+
+    /// Boutons de la barre de navigation.
     @IBOutlet var listeBouton: UIBarButtonItem!
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
@@ -26,7 +28,8 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     let locationManager = CLLocationManager()
     var userPosition: CLLocation?
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +67,7 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.addOverlay(capitalArea)
     }
     
-    // enrichir les annotations
+    /// enrichir les annotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? Poi else { return nil }
         let identifier = "poi"
@@ -82,7 +85,7 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
         return view
     }
     
-    // placer le titre et l'info du Poi dans l'alerte
+    /// placer le titre et l'info du Poi dans l'alerte
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let poi = view.annotation as? Poi else { return }
         
@@ -103,13 +106,14 @@ class MapController : UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    // appellé par le bouton "localise moi"
+    /// Méthode qui centre la carte sur notre localisation
     func setupMap(coordonnees: CLLocationCoordinate2D, myLat: Double, myLong: Double) {
         let span = MKCoordinateSpan(latitudeDelta: myLat , longitudeDelta: myLong)
         let region = MKCoordinateRegion(center: coordonnees, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
+
+    /// Méthode action qui appelle la fontion SetupMap quand on appuie sur le bouton de localisation
     @IBAction func getPosition(_ sender: Any) {
         print("getPosition")
         if userPosition != nil {

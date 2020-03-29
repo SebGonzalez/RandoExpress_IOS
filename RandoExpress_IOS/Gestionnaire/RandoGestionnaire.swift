@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Classe permettant la gestion et l'interraction avec les randonnées.
 class RandoGestionnaire {
-    
+
+    /// Référence au gestionnaire d'authentification.
     var auth = AuthGestionnaire.shared()
     
     private static var sharedRandoGestionnaire: RandoGestionnaire = {
@@ -21,10 +23,8 @@ class RandoGestionnaire {
     var randos = [Rando]()
     var oldRandos = [Rando]()
     var personnes = [Personne]()
-    
-    
+
     // Initialization
-    
     private init() {
         getRandos()
         getOldRandos()
@@ -33,7 +33,8 @@ class RandoGestionnaire {
         print("Nombre de old randos chargès : ")
         print(oldRandos.count)
     }
-    
+
+    /// Méthode d'initialisation de la liste randos à partir de l'api.
     func getRandos() {
         var done = false;
         
@@ -86,7 +87,8 @@ class RandoGestionnaire {
         } while !done
         
     }
-    
+
+    /// Méthode d'initialisation de la liste ancienne randos à partir de l'api.
     func getOldRandos() {
         var done = false;
         
@@ -139,7 +141,15 @@ class RandoGestionnaire {
         } while !done
         
     }
-    
+
+    /**
+     Méthode nous permettant d'avoir l'index ou on doit placer la nouvelle rando dans la liste.
+
+     - Parameters:
+        - rando: Une randonnée
+
+     - Returns: retourne l'index ou l'on doit placer la nouvelle randonnée.
+     */
     func getLastBiggerRandoIndex(rando : Rando) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"

@@ -9,21 +9,23 @@
 import UIKit
 
 class LoginViewController : UIViewController {
-    
-    
+
+    /// Les Label servant a montrer les erreurs.
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorEmail: UILabel!
     @IBOutlet weak var errorPassword: UILabel!
     @IBOutlet weak var errorConnexion: UILabel!
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         errorEmail.text = ""
         errorPassword.text = ""
         errorConnexion.text = ""
     }
-    
+
+    /// Méthode d'action qui valide le formulaire de connexion.
     @IBAction func loginAction(_ sender: Any) {
         errorEmail.text = ""
         errorPassword.text = ""
@@ -55,14 +57,16 @@ class LoginViewController : UIViewController {
             self.performSegue(withIdentifier: "loginToHome", sender: self)
         }
     }
-    
+
+    /// Méthode de validation de l'email.
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-    
+
+    /// Méthode de validation du mot de passe.
     func isValidPassword(_ password: String) -> Bool {
         if(password == "") {
             return false
@@ -72,7 +76,12 @@ class LoginViewController : UIViewController {
         }
         return true
     }
-    
+
+    /**
+     Méthode de connexion.
+
+     - Returns: retourne un json [String: String]
+     */
     func login() -> [String: String] {
         var json = [String: String]()
         var done = false;

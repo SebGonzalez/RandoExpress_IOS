@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// Modèle d'une randonnée.
 struct Rando {
     var id :UInt
     var name :String

@@ -9,15 +9,18 @@
 import UIKit
 
 class HistoController : UIViewController, UITableViewDataSource, UITableViewDelegate{
-    
+
+    /// TableView nous permettant de faire une liste.
     @IBOutlet weak var tableView: UITableView!
-    
+
+    /// Boutons de la barre de navigation.
     @IBOutlet var listeBouton: UIBarButtonItem!
     @IBOutlet var mapBouton: UIBarButtonItem!
     @IBOutlet var profilBouton: UIBarButtonItem!
     
     let cellSpacingHeight: CGFloat = 10
-    
+
+    /// Méthode d'initialisation.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,27 +32,28 @@ class HistoController : UIViewController, UITableViewDataSource, UITableViewDele
         tableView.estimatedRowHeight = 85.0;
         tableView.rowHeight = UITableView.automaticDimension
     }
-    
+
+    /// Retourne le nombre de randonnée.
     func numberOfSections(in tableView: UITableView) -> Int {
         return RandoGestionnaire.shared().oldRandos.count
     }
     
-    // Set the spacing between sections
+    /// Gère l'espacement entre les cellules.
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
-    //Titres des en-têtes de chaque section
+    /// Titres des en-têtes de chaque section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ""
     }
     
-    //Nombre de rangées par section
+    /// Nombre de rangées par section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    //Cellule à l'index concerné
+    /// Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //On crée une cellule basique
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! RandoViewCell
@@ -70,7 +74,8 @@ class HistoController : UIViewController, UITableViewDataSource, UITableViewDele
         
         return cell
     }
-    
+
+    /// Permet de nous renvoyer sur la page de la randonnée quand on clique sur sa cellule correspondante
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
