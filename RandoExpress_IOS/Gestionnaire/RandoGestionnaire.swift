@@ -26,7 +26,6 @@ class RandoGestionnaire {
 
     // Initialization
     private init() {
-        getRandos()
         getOldRandos()
         print("Nombre de randos chargès : ")
         print(randos.count)
@@ -36,6 +35,7 @@ class RandoGestionnaire {
 
     /// Méthode d'initialisation de la liste randos à partir de l'api.
     func getRandos() {
+        randos = [Rando]()
         var done = false;
         
         let url = URL(string: "http://localhost:8080/RandoExpress_API/ws/rest/randos")!
